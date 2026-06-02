@@ -363,6 +363,14 @@ body::before {
   gap: 1.2rem;
 }
 
+@media (min-width: 769px) {
+  .zigzag-text-block {
+    flex: 0 0 544px;
+    width: 544px;
+    max-width: 544px; /* Locked desktop width to guarantee zero layout recalculation shifts! */
+  }
+}
+
 .zigzag-role,
 .zigzag-name,
 .zigzag-desc {
@@ -1165,8 +1173,14 @@ footer {
   display: inline-block;
   padding-right: 4px;
   min-height: 1.8rem; /* Prevent layout shift for single line */
-  white-space: normal; /* Let the text wrap naturally to keep layout 100% constant and stable */
+  white-space: nowrap; /* Force the quote to strictly occupy exactly one single line on desktop! */
   opacity: 0; /* Hidden initially until typewriter script starts! */
+}
+
+@media (max-width: 768px) {
+  .ceo-quote-text {
+    white-space: normal; /* Allow text wrapping on mobile to prevent horizontal overflow */
+  }
 }
 
 .typing-cursor {
