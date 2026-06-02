@@ -13,7 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=58.0">
+  <link rel="stylesheet" href="css/style.css?v=59.0">
 
   <!-- Premium Brand Favicon -->
   <link rel="icon" type="image/png" href="images/logo4.png">
@@ -187,6 +187,14 @@
             <div class="sub-nav-item" onclick="showPartnerDetails('row8')">
               <img src="images/bhavesh_vaishnav.png" class="sub-nav-avatar" alt="Bhavesh Vaishnav">
               <span class="sub-nav-name">Bhavesh Vaishnav</span>
+            </div>
+            <div class="sub-nav-item" onclick="showPartnerDetails('row10')">
+              <img src="images/jagdish_bhai.jpeg" class="sub-nav-avatar" alt="Jagdish Bhai">
+              <span class="sub-nav-name">Jagdish Bhai</span>
+            </div>
+            <div class="sub-nav-item" onclick="showPartnerDetails('row11')">
+              <img src="images/vinu_kumar.jpeg" class="sub-nav-avatar" alt="Vinu Kumar">
+              <span class="sub-nav-name">Vinu Kumar</span>
             </div>
           </div>
         </div>
@@ -471,6 +479,44 @@
           <h2 class="zigzag-name">Bhavesh Vaishnav</h2>
           <p class="zigzag-desc">Producing and editing high-quality corporate videos, promotional media, client success
             stories, and shipping workflows to highlight RBC's global logistics capabilities.</p>
+        </div>
+      </div>
+
+      <!-- Partner Row 10: Senior Trade Consultant (Jagdish Bhai) -->
+      <div class="zigzag-row" id="row10" style="display: none;">
+        <div class="zigzag-img-frame" id="imgFrame10">
+          <div class="profile-vector-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <img src="images/jagdish_bhai.jpeg" alt="Jagdish Bhai" class="zigzag-img"
+            onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+        </div>
+        <div class="zigzag-text-block">
+          <span class="zigzag-role">Senior Trade Consultant</span>
+          <h2 class="zigzag-name">Jagdish Bhai</h2>
+          <p class="zigzag-desc">Directing international corporate trade strategies, securing high-level merchant alliances, and expanding zero-friction maritime corridors across global trading hubs.</p>
+        </div>
+      </div>
+
+      <!-- Partner Row 11: Logistics Coordinator (Vinu Kumar) -->
+      <div class="zigzag-row" id="row11" style="display: none;">
+        <div class="zigzag-img-frame" id="imgFrame11">
+          <div class="profile-vector-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <img src="images/vinu_kumar.jpeg" alt="Vinu Kumar" class="zigzag-img"
+            onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+        </div>
+        <div class="zigzag-text-block">
+          <span class="zigzag-role">Logistics Coordinator</span>
+          <h2 class="zigzag-name">Vinu Kumar</h2>
+          <p class="zigzag-desc">Supervising domestic terminal cargo flows, coordinating customs clearance operations, and optimizing B2B shipping transit times across local trade terminals.</p>
         </div>
       </div>
 
@@ -1134,7 +1180,7 @@
       }
 
       // The custom visible order of profiles:
-      var orderedIds = ['row0', 'row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8'];
+      var orderedIds = ['row0', 'row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8', 'row10', 'row11'];
       var totalRows = orderedIds.length;
 
       // Find the row currently closest to the center of the viewport
@@ -1325,7 +1371,7 @@
       if (!rootPoint) return;
 
       // 1. Compute India Branch Points
-      var indiaIds = ['row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8'];
+      var indiaIds = ['row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8', 'row10', 'row11'];
       var indiaPoints = [rootPoint];
 
       for (var i = 0; i < indiaIds.length; i++) {
@@ -1514,7 +1560,7 @@
 
           // Make ALL Indian team members visible together!
           console.log("showPartnerDetails: Revealing ALL Indian branch rows.");
-          var indiaRows = ['row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8'];
+          var indiaRows = ['row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8', 'row10', 'row11'];
           for (var j = 0; j < indiaRows.length; j++) {
             var id = indiaRows[j];
             var row = document.getElementById(id);
@@ -1539,7 +1585,7 @@
 
           // Collapse all India branch rows completely to keep the tree mutual-exclusive
           console.log("showPartnerDetails: Collapsing India branch rows.");
-          var indiaRows = ['row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8'];
+          var indiaRows = ['row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8', 'row10', 'row11'];
           for (var j = 0; j < indiaRows.length; j++) {
             var id = indiaRows[j];
             var row = document.getElementById(id);
