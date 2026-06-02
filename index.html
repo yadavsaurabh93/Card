@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saurabh | RBC Premium Digital Gateway</title>
+
+  <!-- Premium Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css?v=46.0">
+</head>
+
+<body>
+
+  <!-- Floating Live Debugger Console to capture errors visually -->
+  <div id="rbc-live-debugger"
+    style="position: fixed; top: 20px; right: 20px; z-index: 99999; max-width: 380px; background: rgba(20, 10, 10, 0.95); border: 2px dashed #ef4444; border-radius: 12px; padding: 15px; box-shadow: 0 10px 40px rgba(239, 68, 68, 0.25); color: #fecaca; font-family: monospace; font-size: 11px; line-height: 1.5; display: none;">
+    <div
+      style="font-weight: 800; color: #ef4444; margin-bottom: 8px; font-size: 12px; display: flex; align-items: center; justify-content: space-between;">
+      <span>⚠️ RBC PORTAL DEBUG CONSOLE</span>
+      <button onclick="document.getElementById('rbc-live-debugger').style.display='none'"
+        style="background: none; border: none; color: #fecaca; cursor: pointer; font-size: 12px; font-weight: 800;">✕</button>
+    </div>
+    <div id="rbc-debug-logs" style="max-height: 250px; overflow-y: auto; white-space: pre-wrap; word-break: break-all;">
+    </div>
+  </div>
+
+  <script>
+    // Live logger tool to catch any script compilation/execution errors
+    window.onerror = function (message, source, lineno, colno, error) {
+      var debuggerEl = document.getElementById('rbc-live-debugger');
+      var logsEl = document.getElementById('rbc-debug-logs');
+      if (debuggerEl && logsEl) {
+        debuggerEl.style.display = 'block';
+        var errorMsg = "❌ ERROR: " + message + "\n📁 File: " + (source ? source.split('/').pop() : 'inline') + "\n📍 Line: " + lineno + ":" + colno + "\n\n";
+        logsEl.innerHTML += errorMsg;
+      }
+      return false;
+    };
+
+    console.log = (function (oldLog) {
+      return function () {
+        oldLog.apply(console, arguments);
+        var debuggerEl = document.getElementById('rbc-live-debugger');
+        var logsEl = document.getElementById('rbc-debug-logs');
+        if (debuggerEl && logsEl) {
+          var args = Array.prototype.slice.call(arguments);
+          logsEl.innerHTML += "ℹ️ LOG: " + args.join(' ') + "\n";
+        }
+      };
+    })(console.log);
+  </script>
+
+  <!-- Giant Typographic Background Watermark with dynamic Parallax -->
+  <div class="bg-watermark" id="watermark">RBC PORTAL</div>
+
+
+
+  <div class="container">
+
+    <!-- Portal Header Brand -->
+    <header class="portal-header">
+      <p class="portal-subtitle">OFFICIAL B2B GATEWAY</p>
+      <h1 class="portal-title">RBC Board Members</h1>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- EDITORIAL BORDERLESS ZIG ZAG GALLERY       -->
+    <!-- ========================================== -->
+    <div class="zigzag-container">
+
+
+
+      <!-- Continuous Constellation Laser Curve connection overlay -->
+      <svg class="serpentine-svg" xmlns="http://www.w3.org/2000/svg">
+        <!-- India Branch Glow and Main Path -->
+        <path class="serpentine-glow-path serpentine-glow-path-india" />
+        <path class="serpentine-path serpentine-path-india" />
+
+        <!-- China Branch Glow and Main Path -->
+        <path class="serpentine-glow-path serpentine-glow-path-china" />
+        <path class="serpentine-path serpentine-path-china" />
+      </svg>
+
+      <!-- Partner Row 0: Founder & CEO (Mr. Prakash Pragjibhai Kachchhi) - Top of Sequence -->
+      <div class="zigzag-row active-partner visible" id="row0">
+        <div class="zigzag-img-frame" id="imgFrame0" onclick="togglePrakashSubNav()"
+          title="Click to view Team India & China">
+          <!-- Premium Silhouette Fallback Vector SVG -->
+          <div class="profile-vector-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <!-- Fades in smoothly and hides fallback when loaded -->
+          <img src="D:\Download Vinay JI\parkash sir.jpeg" alt="Mr. Prakash Pragjibhai Kachchhi" class="zigzag-img"
+            onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+        </div>
+        <div class="zigzag-text-block">
+          <span class="zigzag-role">Founder & CEO</span>
+          <h2 class="zigzag-name">Mr. Prakash Pragjibhai Kachchhi</h2>
+          <p class="zigzag-desc">Pioneering the corporate trade vision, strategic network expansion, and scaling
+            zero-trust logistics automation. Dedicated to establishing robust merchant connections and highly secure
+            supply lines across global maritime hubs.</p>
+
+          <!-- Premium Animated CEO Signature Quote -->
+          <div class="ceo-quote-container">
+            <span class="quote-symbol">“</span>
+            <p class="ceo-quote-text" id="ceoQuoteText">वसुधैव कुटुम्बकम के संस्कारो से तपाकर बनते है कलयुग के
+              महाधनुर्धारी अर्जुन ।</p>
+            <span class="quote-symbol closing">”</span>
+          </div>
+
+          <!-- Interactive Partner Sub-Navigation to jump back or to others -->
+          <div class="partner-sub-nav">
+            <div class="sub-nav-item" onclick="showPartnerDetails('row1')">
+              <img src="images/kunal_pawar.png" class="sub-nav-avatar" alt="Kunal Pawar">
+              <span class="sub-nav-name">Kunal Pawar</span>
+            </div>
+            <div class="sub-nav-item" onclick="showPartnerDetails('chinaMember1')">
+              <img src="images/roy_daksh.jpeg" class="sub-nav-avatar" alt="Roy Daksh">
+              <span class="sub-nav-name">Roy Daksh</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner Row 1: Import and Export Manager (Kunal Pawar) -->
+      <div class="zigzag-row" id="row1" style="display: none;">
+        <div class="zigzag-img-frame" id="imgFrame1" onclick="toggleKunalSubNav()" style="cursor: pointer;"
+          title="Click to view Team India Board">
+          <!-- Premium Silhouette Fallback Vector SVG -->
+          <div class="profile-vector-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <!-- Fades in smoothly and hides fallback when loaded -->
+          <img src="images/kunal_pawar.png" alt="Kunal Pawar" class="zigzag-img"
+            onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+        </div>
+        <div class="zigzag-text-block">
+          <span class="zigzag-role">Import and Export Manager</span>
+          <h2 class="zigzag-name">Kunal Pawar</h2>
+          <p class="zigzag-desc">Directing global import and export operations, managing cross-border shipping routes,
+            supervising customs clearance compliance, and optimizing cargo flows to connect international merchants
+            seamlessly across worldwide trade hubs.</p>
+
+          <!-- Interactive Partner Sub-Navigation under Kunal Pawar (Team India Board Members) -->
+          <div class="partner-sub-nav">
+            <div class="sub-nav-item" onclick="showPartnerDetails('row4')">
+              <img src="D:\Download Vinay JI\aditybhai1.jpeg" class="sub-nav-avatar" alt="Aditya bhavani">
+              <span class="sub-nav-name">Aditya bhavani</span>
+            </div>
+            <div class="sub-nav-item" onclick="showPartnerDetails('row9')">
+              <img src="D:\Download Vinay JI\punam patil.png" class="sub-nav-avatar" alt="Punam Patil">
+              <span class="sub-nav-name">Punam Patil</span>
+            </div>
+            <div class="sub-nav-item" onclick="showPartnerDetails('row6')">
+              <img src="images/kajal_tiwari.jpeg" class="sub-nav-avatar" alt="Kajal Tiwari">
+              <span class="sub-nav-name">Kajal Tiwari</span>
+            </div>
+            <div class="sub-nav-item" onclick="showPartnerDetails('row5')">
+              <img src="D:\Download Vinay JI\anshu maurya.png" class="sub-nav-avatar" alt="Anshu Maurya">
+              <span class="sub-nav-name">Anshu Maurya</span>
+            </div>
+            <div class="sub-nav-item" onclick="showPartnerDetails('row3')">
+              <img src="images/yadavji.jpeg" class="sub-nav-avatar" alt="Yadav Saurabh">
+              <span class="sub-nav-name">Yadav Saurabh</span>
+            </div>
+            <div class="sub-nav-item" onclick="showPartnerDetails('row7')">
+              <img src="D:\Download Vinay JI\mm.jpeg" class="sub-nav-avatar" alt="Mistry Mihir">
+              <span class="sub-nav-name">Mistry Mihir</span>
+            </div>
+            <div class="sub-nav-item" onclick="showPartnerDetails('row8')">
+              <img src="images/bhavesh_vaishnav.png" class="sub-nav-avatar" alt="Bhavesh Vaishnav">
+              <span class="sub-nav-name">Bhavesh Vaishnav</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner Row 2: China Operations Team (Roy Daksh & Niraj Vagahasiya) - Special Team Node -->
+      <div id="row2" style="display: none; flex-direction: column; align-items: center; gap: 6rem; width: 100%;">
+
+        <!-- Header for the China Operations Team -->
+        <div style="text-align: center; margin-bottom: 2rem; width: 100%;">
+          <span class="zigzag-role" style="font-size: 1rem; letter-spacing: 4px; color: var(--accent);">CHINA OPERATIONS
+            TEAM</span>
+          <h1 class="zigzag-name"
+            style="font-size: 2.8rem; margin-top: 0.5rem; background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Mainland China Logistics Hub</h1>
+        </div>
+
+        <!-- Member 1: Roy Daksh (Standard Row Style - Image Left, Text Right) -->
+        <div class="zigzag-row" id="chinaMember1" style="display: none;">
+          <div class="zigzag-img-frame" id="imgFrame2" onclick="toggleRoySubNav()" style="cursor: pointer;"
+            title="Click to view Team China Board">
+            <div class="profile-vector-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <img src="images/roy_daksh.jpeg" alt="Roy Daksh" class="zigzag-img"
+              onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+          </div>
+          <div class="zigzag-text-block">
+            <span class="zigzag-role">Chief of China Operations & Regional Director</span>
+            <h2 class="zigzag-name">Roy Daksh</h2>
+            <p class="zigzag-desc">Directing the mainland China logistics infrastructure, cross-border customs
+              synchronization, Shenzhen-to-India maritime shipping lanes, and zero-trust supplier compliance. Roy leads
+              the dedicated Chinese Operations Team to ensure flawless cargo dispatch.</p>
+
+            <!-- Interactive Partner Sub-Navigation under Roy Daksh (Team China Board Members) -->
+            <div class="partner-sub-nav">
+              <div class="sub-nav-item" onclick="showPartnerDetails('chinaMember2')">
+                <img src="D:\Download Vinay JI\niraj bhai .png" class="sub-nav-avatar" alt="Niraj Vagahasiya">
+                <span class="sub-nav-name">Niraj Vagahasiya</span>
+              </div>
+              <div class="sub-nav-item" onclick="showPartnerDetails('chinaMember3')">
+                <img src="D:\Download Vinay JI\SHIVANSH bhai .jpeg" class="sub-nav-avatar" alt="Shivansh Bhai">
+                <span class="sub-nav-name">Shivansh Bhai</span>
+              </div>
+              <div class="sub-nav-item" onclick="showPartnerDetails('chinaMember4')">
+                <img src="D:\Download Vinay JI\tom.png" class="sub-nav-avatar" alt="Tom">
+                <span class="sub-nav-name">Tom </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 2: Niraj Vagahasiya (Standard Row Style - Image Left, Text Right) -->
+        <div class="zigzag-row" id="chinaMember2" style="display: none;">
+          <div class="zigzag-img-frame" id="imgFrame10">
+            <div class="profile-vector-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <img src="D:\Download Vinay JI\niraj bhai .png" alt="Niraj Vagahasiya" class="zigzag-img"
+              onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+          </div>
+          <div class="zigzag-text-block">
+            <span class="zigzag-role">China Operations Lead & Trade Director</span>
+            <h2 class="zigzag-name">Niraj Vagahasiya</h2>
+            <p class="zigzag-desc">Directing the Ningbo and Shanghai logistics networks, high-efficiency container
+              routing, supplier quality assurance audits, and regional customs liaisons. Niraj oversees local shipping
+              syndicates and mainland operations.</p>
+          </div>
+        </div>
+
+        <!-- Member 3: Shivansh Bhai (Standard Row Style - Image Right, Text Left) -->
+        <div class="zigzag-row" id="chinaMember3" style="display: none; flex-direction: row-reverse;">
+          <div class="zigzag-img-frame" id="imgFrame11">
+            <div class="profile-vector-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <img src="D:\Download Vinay JI\SHIVANSH bhai .jpeg" alt="Shivansh Bhai" class="zigzag-img"
+              onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+          </div>
+          <div class="zigzag-text-block">
+            <span class="zigzag-role">China Logistics Coordinator</span>
+            <h2 class="zigzag-name">TANK SHIVANSH</h2>
+            <p class="zigzag-desc">Coordinating mainland transport routes, tracking factory shipments, and supervising
+              customs documentation for mainland exports.</p>
+          </div>
+        </div>
+
+        <!-- Member 4: Tom Bhai (Standard Row Style - Image Left, Text Right) -->
+        <div class="zigzag-row" id="chinaMember4" style="display: none;">
+          <div class="zigzag-img-frame" id="imgFrame12">
+            <div class="profile-vector-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <img src="D:\Download Vinay JI\tom.png" alt="Tom" class="zigzag-img"
+              onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+          </div>
+          <div class="zigzag-text-block">
+            <span class="zigzag-role">China Supply Chain Analyst</span>
+            <h2 class="zigzag-name">Tom </h2>
+            <p class="zigzag-desc">Analyzing freight schedules, auditing port warehouse inventories, and managing
+              communication with East Asian shipping lines.</p>
+          </div>
+        </div>
+
+        <!-- Back Button at the bottom -->
+        <div style="display: flex; justify-content: center; width: 100%; margin-top: 2rem;">
+          <button class="btn-visit" onclick="closeRoyDaksh()"
+            style="max-width: 260px; background: rgba(255, 255, 255, 0.08); border: 1.5px solid rgba(255, 255, 255, 0.2); width: auto; padding: 12px 24px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(180deg); margin-right: 6px;">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+            <span>Back to Board Members</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Partner Row 4: Trade Director (Aditya bhavani) - Bottom of Sequence -->
+      <div class="zigzag-row" id="row4" style="display: none;">
+        <div class="zigzag-img-frame" id="imgFrame4">
+          <!-- Premium Silhouette Fallback Vector SVG -->
+          <div class="profile-vector-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <!-- Fades in smoothly and hides fallback when loaded -->
+          <img src="D:\Download Vinay JI\aditybhai1.jpeg" class="zigzag-img"
+            onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+        </div>
+        <div class="zigzag-text-block">
+          <span class="zigzag-role">Account and Transport Manager</span>
+          <h2 class="zigzag-name">Aditya bhavani</h2>
+          <p class="zigzag-desc">Managing transport operations, client accounts, financial transactions, and carrier
+            contracts to ensure cost-effective, timely shipping and excellent container transport management.</p>
+        </div>
+      </div>
+
+      <!-- Partner Row 9: Global Operations Director (Punam Patil) - Interactive Node -->
+      <div class="zigzag-row" id="row9" style="display: none;">
+        <div class="zigzag-img-frame" id="imgFrame9">
+          <!-- Premium Silhouette Fallback Vector SVG -->
+          <div class="profile-vector-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <!-- Fades in smoothly and hides fallback when loaded -->
+          <img src="D:\Download Vinay JI\punam patil.png" class="zigzag-img"
+            onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+        </div>
+        <div class="zigzag-text-block">
+          <span class="zigzag-role">Customer Relationship Executive</span>
+          <h2 class="zigzag-name">Punam Patil</h2>
+          <p class="zigzag-desc">Dedicated to building and maintaining strong customer relationships, addressing client
+            inquiries, tracking cargo statuses, and ensuring seamless communication between clients and our transport
+            networks.</p>
+        </div>
+      </div>
+
+      <!-- Partner Row 6: Chief Financial Officer (Kajal Tiwari) - Interactive Node -->
+      <div class="zigzag-row" id="row6" style="display: none;">
+        <div class="zigzag-img-frame" id="imgFrame6">
+          <!-- Premium Silhouette Fallback Vector SVG -->
+          <div class="profile-vector-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <!-- Fades in smoothly and hides fallback when loaded -->
+          <img src="images/kajal_tiwari.jpeg" alt="Kajal Tiwari" class="zigzag-img"
+            onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+        </div>
+        <div class="zigzag-text-block">
+          <span class="zigzag-role">Customer Support Executive</span>
+          <h2 class="zigzag-name">Kajal Tiwari</h2>
+          <p class="zigzag-desc">Providing direct customer support, resolving delivery complaints, handling shipment
+            tracking inquiries, and ensuring high-quality, friendly assistance for all client trade operations.</p>
+        </div>
+      </div>
+
+      <!-- Partner Row 5: Supply Chain Lead (Anshu Maurya) - Interactive Node -->
+      <div class="zigzag-row" id="row5" style="display: none;">
+        <div class="zigzag-img-frame" id="imgFrame5">
+          <!-- Premium Silhouette Fallback Vector SVG -->
+          <div class="profile-vector-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <!-- Fades in smoothly and hides fallback when loaded -->
+          <img src="D:\Download Vinay JI\anshu maurya.png" alt="Anshu Maurya" class="zigzag-img"
+            onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+        </div>
+        <div class="zigzag-text-block">
+          <span class="zigzag-role">Documentation Executive</span>
+          <h2 class="zigzag-name">Anshu Maurya</h2>
+          <p class="zigzag-desc">Managing all essential trade documentation, including bills of lading, customs
+            invoices, shipping declarations, certificates of origin, and compliance paperwork for hassle-free customs
+            clearance.</p>
+        </div>
+      </div>
+
+      <!-- Partner Row 3: Principal Partner (Yadav Saurabh) - Relocated Below Anshu -->
+      <div class="zigzag-row" id="row3" style="display: none;">
+        <div class="zigzag-img-frame" id="imgFrame3">
+          <!-- Premium Silhouette Fallback Vector SVG -->
+          <div class="profile-vector-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <!-- Fades in smoothly and hides fallback when loaded -->
+          <img src="images/yadavji.jpeg" alt="Yadav Saurabh" class="zigzag-img"
+            onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+        </div>
+        <div class="zigzag-text-block">
+          <span class="zigzag-role">Software Developer</span>
+          <h2 class="zigzag-name">Yadav Saurabh</h2>
+          <p class="zigzag-desc">Designing, developing, and maintaining internal logistics platforms, shipment tracking
+            systems, and automation software to streamline operational workflows and secure user databases.</p>
+        </div>
+      </div>
+
+      <!-- Partner Row 7: Trade Operations Lead (Mistry Mihir) - Interactive Node -->
+      <div class="zigzag-row" id="row7" style="display: none;">
+        <div class="zigzag-img-frame" id="imgFrame7">
+          <!-- Premium Silhouette Fallback Vector SVG -->
+          <div class="profile-vector-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <!-- Fades in smoothly and hides fallback when loaded -->
+          <img src="D:\Download Vinay JI\mm.jpeg" alt="Mistry Mihir" class="zigzag-img"
+            onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+        </div>
+        <div class="zigzag-text-block">
+          <span class="zigzag-role">Graphic Designer</span>
+          <h2 class="zigzag-name">Mistry Mihir</h2>
+          <p class="zigzag-desc">Creating premium visual designs, social media branding, company catalogs, and
+            promotional banners to present the RBC logistics brand professionally across all digital platforms.</p>
+        </div>
+      </div>
+
+      <!-- Partner Row 8: Executive Director & Regional Manager (Bhavesh Vaishnav) - Interactive Node -->
+      <div class="zigzag-row" id="row8" style="display: none;">
+        <div class="zigzag-img-frame" id="imgFrame8">
+          <!-- Premium Silhouette Fallback Vector SVG -->
+          <div class="profile-vector-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <!-- Fades in smoothly and hides fallback when loaded -->
+          <img src="images/bhavesh_vaishnav.png" alt="Bhavesh Vaishnav" class="zigzag-img"
+            onload="this.style.opacity=1; if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+        </div>
+        <div class="zigzag-text-block">
+          <span class="zigzag-role">Video Editor</span>
+          <h2 class="zigzag-name">Bhavesh Vaishnav</h2>
+          <p class="zigzag-desc">Producing and editing high-quality corporate videos, promotional media, client success
+            stories, and shipping workflows to highlight RBC's global logistics capabilities.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Science Portal Orb Gateway -->
+    <div class="gateway-wrapper">
+      <div class="orb-container">
+        <div class="orbit-ring-outer"></div>
+        <div class="orbit-ring-inner"></div>
+
+        <div class="core-orb" id="coreOrb">
+          <!-- Default Share icon -->
+          <svg id="orbIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+        </div>
+      </div>
+      <div class="gateway-message" id="gatewayStatus">SELECT PORTAL TO INITIATE CONNECTION</div>
+    </div>
+
+    <!-- Grid of 6 borderless sheet platforms -->
+    <div class="grid">
+
+      <!-- WhatsApp Card -->
+      <div class="card" data-platform="whatsapp" data-url="https://wa.me/919081253536" data-handle="WhatsApp Support"
+        data-status="LINKED: WHATSAPP QUICK CHAT">
+        <div class="card-glow-overlay"></div>
+        <div class="card-content-wrap">
+          <div class="card-header">
+            <div class="card-icon-box">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.335 4.963L2 22l5.233-1.372a9.948 9.948 0 0 0 4.779 1.218h.004c5.502 0 9.987-4.479 9.988-9.985a9.979 9.979 0 0 0-2.928-7.06A9.929 9.929 0 0 0 12.012 2zm5.835 14.12c-.256.726-1.5 1.332-2.046 1.402-.497.068-1.147.124-3.27-.71-2.713-1.07-4.462-3.853-4.597-4.037-.137-.184-1.095-1.46-1.095-2.785 0-1.323.684-1.973.957-2.247.273-.274.615-.342.82-.342.204 0 .41.003.58.01.183.008.43-.072.673.513.25.599.854 2.083.928 2.235.074.152.124.33.023.533-.1.201-.15.33-.298.502-.148.173-.313.387-.447.519-.148.147-.303.308-.13.606.172.296.768 1.267 1.65 2.057.941.843 1.733 1.107 2.037 1.242.304.135.483.113.665-.098.183-.21.785-.915.99-1.23.204-.317.41-.264.69-.162.28.103 1.776.84 2.083.993.306.152.51.229.586.36.076.13.076.757-.18 1.485z" />
+              </svg>
+            </div>
+            <span class="card-handle">WhatsApp Sourcing</span>
+          </div>
+          <h3 class="card-title">WhatsApp Support</h3>
+          <p class="card-desc">Direct B2B chat interface to our trade support desk. Send product pictures, container
+            lists, or request wholesale quotes.</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn-copy" onclick="copyLink('https://wa.me/919081253536', this, event)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="copy-svg">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Link</span>
+          </button>
+          <button class="btn-visit" onclick="window.open('https://wa.me/919081253536', '_blank')">
+            <span>Launch</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Corporate Email Card -->
+      <div class="card" data-platform="email" data-url="mailto:rbcimportadmin@gmail.com"
+        data-handle="rbcimportadmin@gmail.com" data-status="LINKED: CORPORATE EMAIL INBOX">
+        <div class="card-glow-overlay"></div>
+        <div class="card-content-wrap">
+          <div class="card-header">
+            <div class="card-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <span class="card-handle">rbcimportadmin@gmail.com</span>
+          </div>
+          <h3 class="card-title">Corporate Email</h3>
+          <p class="card-desc">Send official wholesale RFQs, legal draft agreements, supplier audits, and formal
+            commercial inquiries directly to our desk.</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn-copy" onclick="copyLink('rbcimportadmin@gmail.com', this, event)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="copy-svg">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Email</span>
+          </button>
+          <button class="btn-visit" onclick="window.open('mailto:rbcimportadmin@gmail.com', '_blank')">
+            <span>Launch</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- X (Twitter) Card -->
+      <div class="card" data-platform="x" data-url="https://x.com/RBCIMPORTEXPORT" data-handle="@RBCIMPORTEXPORT"
+        data-status="LINKED: X (TWITTER) CORRIDOR">
+        <div class="card-glow-overlay"></div>
+        <div class="card-content-wrap">
+          <div class="card-header">
+            <div class="card-icon-box">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </div>
+            <span class="card-handle">@RBCIMPORTEXPORT</span>
+          </div>
+          <h3 class="card-title">X (Twitter)</h3>
+          <p class="card-desc">Get instant logistics reports, global customs clearances, import tariffs, and live cargo
+            updates directly from our desk.</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn-copy" onclick="copyLink('https://x.com/RBCIMPORTEXPORT', this, event)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="copy-svg">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Link</span>
+          </button>
+          <button class="btn-visit" onclick="window.open('https://x.com/RBCIMPORTEXPORT', '_blank')">
+            <span>Launch</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Instagram Card (Filled Solid SVG for Maximum Visibility) -->
+      <div class="card" data-platform="instagram"
+        data-url="https://www.instagram.com/rbcimportexport?igsh=bXQ0ZXdkNWFoNjlm" data-handle="@rbcimportexport"
+        data-status="LINKED: INSTAGRAM CORRIDOR">
+        <div class="card-glow-overlay"></div>
+        <div class="card-content-wrap">
+          <div class="card-header">
+            <div class="card-icon-box">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+              </svg>
+            </div>
+            <span class="card-handle">@rbcimportexport</span>
+          </div>
+          <h3 class="card-title">Instagram</h3>
+          <p class="card-desc">Visual stories of our active custom clearances, container loading, warehouse gates, and
+            supply dispatch tours.</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn-copy"
+            onclick="copyLink('https://www.instagram.com/rbcimportexport?igsh=bXQ0ZXdkNWFoNjlm', this, event)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="copy-svg">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Link</span>
+          </button>
+          <button class="btn-visit"
+            onclick="window.open('https://www.instagram.com/rbcimportexport?igsh=bXQ0ZXdkNWFoNjlm', '_blank')">
+            <span>Launch</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- LinkedIn Card -->
+      <div class="card" data-platform="linkedin"
+        data-url="https://www.linkedin.com/in/rbc-importexport-4531aa40b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        data-handle="RBC Import Export" data-status="LINKED: LINKEDIN DIRECTORY">
+        <div class="card-glow-overlay"></div>
+        <div class="card-content-wrap">
+          <div class="card-header">
+            <div class="card-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </div>
+            <span class="card-handle">RBC Import Export</span>
+          </div>
+          <h3 class="card-title">LinkedIn</h3>
+          <p class="card-desc">Connect with our administrative board. Perfect for wholesale pricing catalogs, customs
+            clearances, and corporate partnerships.</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn-copy"
+            onclick="copyLink('https://www.linkedin.com/in/rbc-importexport-4531aa40b?utm_source=share_via&utm_content=profile&utm_medium=member_android', this, event)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="copy-svg">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Link</span>
+          </button>
+          <button class="btn-visit"
+            onclick="window.open('https://www.linkedin.com/in/rbc-importexport-4531aa40b?utm_source=share_via&utm_content=profile&utm_medium=member_android', '_blank')">
+            <span>Launch</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Facebook Card -->
+      <div class="card" data-platform="facebook" data-url="https://www.facebook.com/share/1CTFZpgGDY/"
+        data-handle="RBC Import-Export" data-status="LINKED: FACEBOOK NETWORK">
+        <div class="card-glow-overlay"></div>
+        <div class="card-content-wrap">
+          <div class="card-header">
+            <div class="card-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </div>
+            <span class="card-handle">RBC Import-Export</span>
+          </div>
+          <h3 class="card-title">Facebook</h3>
+          <p class="card-desc">Join our B2B digital Facebook community page, review client testimonials, and access
+            regional customer support desks.</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn-copy" onclick="copyLink('https://www.facebook.com/share/1CTFZpgGDY/', this, event)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="copy-svg">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Link</span>
+          </button>
+          <button class="btn-visit" onclick="window.open('https://www.facebook.com/share/1CTFZpgGDY/', '_blank')">
+            <span>Launch</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Global Logistics Warehouses Section -->
+    <div class="warehouses-section">
+      <div class="section-header-wrap">
+        <span class="section-tag">GLOBAL LOGISTICS DEPLOYMENTS</span>
+        <h2 class="section-main-title">Our Global Logistics Warehouses</h2>
+        <p class="section-subtitle">Real-time coordinates and receiving addresses for our international B2B merchants.</p>
+      </div>
+
+      <div class="warehouses-grid">
+        <!-- Surat Headquarters Card -->
+        <div class="warehouse-card">
+          <div class="warehouse-badge">SURAT HQ</div>
+          <div class="warehouse-info">
+            <div class="warehouse-icon-title">
+              <svg class="warehouse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <h3>Surat મોતા Office</h3>
+            </div>
+            <p class="warehouse-address">મોતા, Surat, Gujarat, India</p>
+          </div>
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4636.012656178653!2d73.04737837526065!3d21.174808280511296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDEwJzI5LjMiTiA3M8KwMDInNTkuOCJF!5e1!3m2!1sen!2sin!4v1780375213469!5m2!1sen!2sin" 
+              width="100%" 
+              height="250" 
+              style="border:0; border-radius: 8px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Guangzhou/Foshan Warehouse Card -->
+        <div class="warehouse-card">
+          <div class="warehouse-badge">GUANGZHOU HUB</div>
+          <div class="warehouse-info">
+            <div class="warehouse-icon-title">
+              <svg class="warehouse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <h3>Guangzhou Receiving Address</h3>
+            </div>
+            <p class="warehouse-address">佛山市顺德区乐从骏洋五金材料城C座3-6后仓</p>
+          </div>
+          <div class="map-container">
+            <iframe 
+              src="https://maps.google.com/maps?q=佛山市顺德区乐从骏洋五金材料城C座3-6后仓&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
+              width="100%" 
+              height="250" 
+              style="border:0; border-radius: 8px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Yiwu Warehouse Card -->
+        <div class="warehouse-card">
+          <div class="warehouse-badge">YIWU HUB</div>
+          <div class="warehouse-info">
+            <div class="warehouse-icon-title">
+              <svg class="warehouse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <h3>Yiwu Receiving Address</h3>
+            </div>
+            <p class="warehouse-address">浙江省义乌市后宅街道杜元小区7栋1单元仓库(义乌腾飞体育)</p>
+          </div>
+          <div class="map-container">
+            <iframe 
+              src="https://maps.google.com/maps?q=浙江省义乌市后宅街道杜元小区7栋1单元仓库(义乌腾飞体育)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
+              width="100%" 
+              height="250" 
+              style="border:0; border-radius: 8px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Footer -->
+    <footer>
+      <p class="footer-text">ESTABLISHED 2011 • SURAT • GUANGZHOU • YIWU</p>
+      <p class="footer-support">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        ONLINE PORTAL ACTIVE
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Script Logic (Directly Inlined to bypass browser cache & file:// origin blocks!) -->
+  <script>
+    // Vibrant Full-Screen Theme Gradients (Matching the Hot Pink reference style!)
+    var themePresets = {
+      orange: {
+        gradient: 'linear-gradient(135deg, #0b0c10 0%, #1a1c29 50%, #050508 100%)',
+        accentGlow: 'rgba(59, 130, 246, 0.35)',
+        watermark: 'RBC CORE'
+      },
+      green: {
+        gradient: 'linear-gradient(135deg, #059669 0%, #064e3b 100%)',
+        accentGlow: 'rgba(5, 150, 105, 0.4)',
+        watermark: 'RBC LOGISTICS'
+      },
+      blue: {
+        gradient: 'linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%)',
+        accentGlow: 'rgba(29, 78, 216, 0.4)',
+        watermark: 'RBC NETWORK'
+      },
+      purple: {
+        gradient: 'linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%)',
+        accentGlow: 'rgba(109, 40, 217, 0.4)',
+        watermark: 'RBC DIRECT'
+      },
+      pink: {
+        gradient: 'linear-gradient(135deg, #db2777 0%, #9d174d 100%)',
+        accentGlow: 'rgba(219, 39, 119, 0.4)',
+        watermark: 'RBC CONNECT'
+      },
+      gold: {
+        gradient: 'linear-gradient(135deg, #d97706 0%, #78350f 100%)',
+        accentGlow: 'rgba(217, 119, 6, 0.4)',
+        watermark: 'RBC GATEWAY'
+      }
+    };
+
+    // Icons definitions in central Orb
+    var platformIcons = {
+      default: '\n    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\n      <circle cx="18" cy="5" r="3"></circle>\n      <circle cx="6" cy="12" r="3"></circle>\n      <circle cx="18" cy="19" r="3"></circle>\n      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>\n      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>\n    </svg>\n  ',
+      whatsapp: '\n    <svg viewBox="0 0 24 24" fill="currentColor">\n      <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.335 4.963L2 22l5.233-1.372a9.948 9.948 0 0 0 4.779 1.218h.004c5.502 0 9.987-4.479 9.988-9.985a9.979 9.979 0 0 0-2.928-7.06A9.929 9.929 0 0 0 12.012 2zm5.835 14.12c-.256.726-1.5 1.332-2.046 1.402-.497.068-1.147.124-3.27-.71-2.713-1.07-4.462-3.853-4.597-4.037-.137-.184-1.095-1.46-1.095-2.785 0-1.323.684-1.973.957-2.247.273-.274.615-.342.82-.342.204 0 .41.003.58.01.183.008.43-.072.673.513.25.599.854 2.083.928 2.235.074.152.124.33.023.533-.1.201-.15.33-.298.502-.148.173-.313.387-.447.519-.148.147-.303.308-.13.606.172.296.768 1.267 1.65 2.057.941.843 1.733 1.107 2.037 1.242.304.135.483.113.665-.098.183-.21.785-.915.99-1.23.204-.317.41-.264.69-.162.28.103 1.776.84 2.083.993.306.152.51.229.586.36.076.13.076.757-.18 1.485z"/>\n    </svg>\n  ',
+      email: '\n    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\n      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>\n    </svg>\n  ',
+      x: '\n    <svg viewBox="0 0 24 24" fill="currentColor">\n      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>\n    </svg>\n  ',
+      instagram: '\n    <svg viewBox="0 0 24 24" fill="currentColor">\n      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>\n    </svg>\n  ',
+      linkedin: '\n    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\n      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>\n    </svg>\n  ',
+      facebook: '\n    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\n      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>\n    </svg>\n  '
+    };
+
+    var root = document.documentElement;
+    var coreOrb = document.getElementById('coreOrb');
+    var gatewayStatus = document.getElementById('gatewayStatus');
+    var watermark = document.getElementById('watermark');
+
+    // 2. Card Hover Portal Morpher Logic + Interactive Glow Follow
+    var cards = document.querySelectorAll('.card');
+
+    for (var k = 0; k < cards.length; k++) {
+      (function (card) {
+        var platform = card.getAttribute('data-platform');
+        var statusMsg = card.getAttribute('data-status');
+        var url = card.getAttribute('data-url');
+
+        // Cursor tracking glow coordinates
+        card.addEventListener('mousemove', function (e) {
+          try {
+            var rect = card.getBoundingClientRect();
+            var x = e.clientX - rect.left;
+            var y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', (x / rect.width * 100) + '%');
+            card.style.setProperty('--mouse-y', (y / rect.height * 100) + '%');
+          } catch (err) { }
+        });
+
+        card.addEventListener('mouseenter', function () {
+          // Core orb glowing expansion feedback
+          if (coreOrb) {
+            coreOrb.style.transform = 'scale(1.08)';
+            coreOrb.style.background = 'rgba(255, 255, 255, 0.3)';
+            coreOrb.style.boxShadow = '0 0 45px rgba(255, 255, 255, 0.8), 0 0 25px var(--accent-glow)';
+            coreOrb.innerHTML = platformIcons[platform] || platformIcons.default;
+          }
+
+          // Status text lights up
+          if (gatewayStatus) {
+            gatewayStatus.textContent = statusMsg;
+            gatewayStatus.classList.add('active');
+          }
+        });
+
+        card.addEventListener('mouseleave', function () {
+          // Reset portal state
+          if (coreOrb) {
+            coreOrb.style.transform = 'scale(1)';
+            coreOrb.style.background = 'rgba(255, 255, 255, 0.15)';
+            coreOrb.style.boxShadow = '0 0 30px rgba(255, 255, 255, 0.4)';
+            coreOrb.innerHTML = platformIcons.default;
+          }
+
+          if (gatewayStatus) {
+            gatewayStatus.textContent = "SELECT PORTAL TO INITIATE CONNECTION";
+            gatewayStatus.classList.remove('active');
+          }
+        });
+
+        // Navigate to platform link on card click
+        card.addEventListener('click', function () {
+          window.open(url, '_blank');
+        });
+      })(cards[k]);
+    }
+
+    // 3. 3D Background Parallax Effect
+    document.addEventListener('mousemove', function (e) {
+      try {
+        if (watermark) {
+          var moveX = (e.clientX - window.innerWidth / 2) * -0.02;
+          var moveY = (e.clientY - window.innerHeight / 2) * -0.02;
+          watermark.style.transform = 'translate(calc(-50% + ' + moveX + 'px), calc(-50% + ' + moveY + 'px))';
+        }
+      } catch (err) { }
+    });
+
+    // Premium Realistic Multilingual Typewriter/Writing Effect for Founder & CEO's signature quote
+    function triggerQuoteTyping() {
+      try {
+        var quoteEl = document.getElementById('ceoQuoteText');
+        if (!quoteEl) return;
+
+        // Read target text and reset content
+        var text = quoteEl.innerText || quoteEl.textContent || "वसुधैव कुटुम्बकम के संस्कारो से तपाकर बनते है कलयुग के महाधनुर्धारी अर्जुन ।";
+        quoteEl.textContent = '';
+        quoteEl.style.opacity = 1;
+
+        // Apply blinking typewriter cursor class
+        quoteEl.classList.add('typing-cursor');
+
+        var index = 0;
+        function typeChar() {
+          if (index < text.length) {
+            quoteEl.textContent += text.charAt(index);
+            index++;
+            // Natural humanoid variance delays (between 35ms and 80ms)
+            setTimeout(typeChar, 35 + Math.random() * 45);
+          } else {
+            // Retain blinking cursor for 1.5 seconds after completion, then fade it out cleanly
+            setTimeout(function () {
+              quoteEl.classList.remove('typing-cursor');
+            }, 1500);
+          }
+        }
+
+        // Start the realistic writing animation
+        setTimeout(typeChar, 400); // 400ms delay to feel perfect as the card finishes entering
+      } catch (err) { }
+    }
+
+    // 4. HIGH-PERFORMANCE INTERSECTION OBSERVER FOR STAGGERED ELEVATION
+    var zigzagRows = document.querySelectorAll('.zigzag-row');
+
+    if (typeof IntersectionObserver === 'function') {
+      var observerOptions = {
+        threshold: 0.15, // Triggers when 15% of the row is visible in viewport
+        rootMargin: "0px 0px -40px 0px"
+      };
+
+      var scrollObserver = new IntersectionObserver(function (entries, observer) {
+        for (var i = 0; i < entries.length; i++) {
+          var entry = entries[i];
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            if (entry.target.id === 'row0') {
+              triggerQuoteTyping();
+            }
+            observer.unobserve(entry.target);
+          }
+        }
+      }, observerOptions);
+
+      for (var i = 0; i < zigzagRows.length; i++) {
+        scrollObserver.observe(zigzagRows[i]);
+      }
+    } else {
+      // Fallback: If IntersectionObserver is not supported, display all rows instantly
+      for (var m = 0; m < zigzagRows.length; m++) {
+        zigzagRows[m].classList.add('visible');
+      }
+      triggerQuoteTyping();
+    }
+
+    // 5. Clipboard copy action trigger with full execCommand fallback
+    function copyLink(url, btn, event) {
+      if (event) event.stopPropagation(); // Stop card click launch
+
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        navigator.clipboard.writeText(url).then(function () {
+          triggerCopyFeedback(btn);
+        })['catch'](function () {
+          fallbackCopy(url, btn);
+        });
+      } else {
+        fallbackCopy(url, btn);
+      }
+    }
+
+    function triggerCopyFeedback(btn) {
+      var textSpan = btn.querySelector('span');
+      var originalText = textSpan.textContent;
+
+      btn.classList.add('success');
+      textSpan.textContent = "Copied!";
+      btn.querySelector('.copy-svg').innerHTML = '\n      <polyline points="20 6 9 17 4 12"></polyline>\n    ';
+
+      setTimeout(function () {
+        btn.classList.remove('success');
+        textSpan.textContent = originalText;
+        btn.querySelector('.copy-svg').innerHTML = '\n        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>\n        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>\n      ';
+      }, 2000);
+    }
+
+    function fallbackCopy(url, btn) {
+      var textArea = document.createElement("textarea");
+      textArea.value = url;
+      // Place in the top-left corner of screen regardless of scroll position
+      textArea.style.position = 'fixed';
+      textArea.style.top = '0';
+      textArea.style.left = '0';
+      textArea.style.width = '2em';
+      textArea.style.height = '2em';
+      textArea.style.padding = '0';
+      textArea.style.border = 'none';
+      textArea.style.outline = 'none';
+      textArea.style.boxShadow = 'none';
+      textArea.style.background = 'transparent';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        var successful = document.execCommand('copy');
+        if (successful) {
+          triggerCopyFeedback(btn);
+        }
+      } catch (err) {
+        console.log('Fallback: Unable to copy', err);
+      }
+
+      document.body.removeChild(textArea);
+    }
+
+    // Toggle Mr. Prakash's (CEO) interactive sub-navigation list
+    function togglePrakashSubNav() {
+      var subNav = document.querySelector('#row0 .partner-sub-nav');
+      if (subNav) {
+        subNav.classList.toggle('active');
+        triggerFluidSerpentineRedraw();
+      }
+    }
+
+    // Toggle Kunal Pawar's interactive board members sub-navigation list
+    function toggleKunalSubNav() {
+      var subNav = document.querySelector('#row1 .partner-sub-nav');
+      if (subNav) {
+        subNav.classList.toggle('active');
+        triggerFluidSerpentineRedraw();
+      }
+    }
+
+    // Navigate between partners with smooth scroll controls
+    function navigatePartner(direction) {
+      // Check if Roy Daksh is currently active
+      var royRow = document.getElementById('row2');
+      var isRoyActive = royRow && royRow.classList.contains('active-partner');
+
+      if (isRoyActive) {
+        if (direction === 'prev') {
+          closeRoyDaksh();
+          return;
+        } else if (direction === 'next') {
+          closeRoyDaksh();
+          return;
+        }
+      }
+
+      // The custom visible order of profiles:
+      var orderedIds = ['row0', 'row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8'];
+      var totalRows = orderedIds.length;
+
+      // Find the row currently closest to the center of the viewport
+      var currentActive = null;
+      var minDistance = Infinity;
+      var viewportCenter = window.innerHeight / 2;
+
+      for (var i = 0; i < orderedIds.length; i++) {
+        var id = orderedIds[i];
+        var row = document.getElementById(id);
+        if (row) {
+          var rect = row.getBoundingClientRect();
+          var rowCenter = rect.top + rect.height / 2;
+          var distance = Math.abs(rowCenter - viewportCenter);
+          if (distance < minDistance) {
+            minDistance = distance;
+            currentActive = row;
+          }
+        }
+      }
+
+      if (!currentActive) return;
+
+      var currentId = currentActive.id;
+      var currentIndex = orderedIds.indexOf(currentId);
+
+      // If at Mr. Prakash (row0 - index 0) and clicking next, open Roy Daksh!
+      if (currentId === 'row0' && direction === 'next') {
+        if (typeof showPartnerDetails === 'function') showPartnerDetails('chinaMember1');
+        return;
+      }
+
+      var targetIndex;
+      if (direction === 'next') {
+        targetIndex = (currentIndex + 1) % totalRows;
+      } else if (direction === 'prev') {
+        if (typeof showPartnerDetails === 'function') showPartnerDetails('row0');
+        return;
+      }
+
+      if (typeof showPartnerDetails === 'function') showPartnerDetails(orderedIds[targetIndex]);
+    }
+
+    // Close the China operations branch and scroll back to Prakash (Row 0)
+    function closeRoyDaksh() {
+      var chinaRowContainer = document.getElementById('row2');
+      if (chinaRowContainer) {
+        // Hide all China rows
+        chinaRowContainer.style.display = 'none';
+        chinaRowContainer.classList.remove('visible');
+
+        var chinaRows = chinaRowContainer.querySelectorAll('.zigzag-row');
+        for (var i = 0; i < chinaRows.length; i++) {
+          var row = chinaRows[i];
+          row.style.display = 'none';
+          row.classList.remove('visible');
+          var subNav = row.querySelector('.partner-sub-nav');
+          if (subNav) subNav.classList.remove('active');
+        }
+      }
+
+      if (typeof showPartnerDetails === 'function') showPartnerDetails('row0');
+      triggerFluidSerpentineRedraw();
+    }
+
+    // Legacy navigation stubs for absolute safety
+    function closeRoyDakshToPrakash() {
+      closeRoyDaksh();
+    }
+    function closeRoyDakshToAditya() {
+      closeRoyDaksh();
+    }
+
+    // Global scroll event listener to detect first-time scroll interaction
+    window.addEventListener('scroll', function () {
+      document.body.classList.add('has-scrolled');
+    }, { once: true });
+
+    // Dynamic scroll-drawing and self-erasing controller for the cyan ribbon (for both paths)
+    function updateSerpentineOpacityOnScroll() {
+      var container = document.querySelector('.zigzag-container');
+      var paths = document.querySelectorAll('.serpentine-svg path.serpentine-path');
+      var glowPaths = document.querySelectorAll('.serpentine-svg path.serpentine-glow-path');
+      if (!container || (paths.length === 0 && glowPaths.length === 0)) return;
+
+      var rect = container.getBoundingClientRect();
+      var viewportHeight = window.innerHeight;
+
+      // Calculate how much of the container is scrolled past the viewport top
+      var visibleTop = Math.max(0, -rect.top);
+      var totalScrollableHeight = rect.height - viewportHeight;
+
+      if (totalScrollableHeight > 0) {
+        var scrollPercent = Math.min(1, Math.max(0, visibleTop / totalScrollableHeight));
+
+        // Dynamically draw/erase the main paths
+        for (var i = 0; i < paths.length; i++) {
+          var path = paths[i];
+          if (path && path.dataset.length) {
+            var length = parseFloat(path.dataset.length);
+            var drawOffset = length * (1 - scrollPercent);
+            path.style.strokeDashoffset = drawOffset.toFixed(2);
+          }
+        }
+
+        // Dynamically draw/erase the backdrop glowing paths in perfect sync
+        for (var j = 0; j < glowPaths.length; j++) {
+          var glowPath = glowPaths[j];
+          if (glowPath && glowPath.dataset.length) {
+            var glowLength = parseFloat(glowPath.dataset.length);
+            var glowDrawOffset = glowLength * (1 - scrollPercent);
+            glowPath.style.strokeDashoffset = glowDrawOffset.toFixed(2);
+          }
+        }
+      }
+    }
+
+    // Generate S-curve cubic bezier commands for a set of coordinates
+    function generateBezierPath(points) {
+      if (points.length < 2) return '';
+
+      var d = 'M ' + points[0].x + ' ' + points[0].y;
+      for (var i = 0; i < points.length - 1; i++) {
+        var p0 = points[i];
+        var p1 = points[i + 1];
+
+        var midY = (p0.y + p1.y) / 2;
+        var cp1x = p0.x;
+        var cp1y = midY;
+        var cp2x = p1.x;
+        var cp2y = midY;
+
+        d += ' C ' + cp1x + ' ' + cp1y + ', ' + cp2x + ' ' + cp2y + ', ' + p1.x + ' ' + p1.y;
+      }
+      return d;
+    }
+
+    // Robust fluid serpentine line redrawing function that handles moving layouts and CSS transition durations
+    function triggerFluidSerpentineRedraw() {
+      if (typeof drawSerpentineRoad !== 'function') return;
+
+      // Draw immediately
+      drawSerpentineRoad();
+
+      // Schedule repeated redrawing during the 1.2-second CSS elevation transform transition!
+      var intervals = [50, 150, 300, 500, 750, 1000, 1200, 1500];
+      for (var i = 0; i < intervals.length; i++) {
+        (function (delay) {
+          setTimeout(function () {
+            try {
+              drawSerpentineRoad();
+              if (typeof updateSerpentineOpacityOnScroll === 'function') {
+                updateSerpentineOpacityOnScroll();
+              }
+            } catch (err) { }
+          }, delay);
+        })(intervals[i]);
+      }
+    }
+
+    // Dynamically calculate and draw two independent smooth serpentine lines (India and China branches!)
+    function drawSerpentineRoad() {
+      var container = document.querySelector('.zigzag-container');
+      if (!container) return;
+
+      var containerRect = container.getBoundingClientRect();
+
+      // Dynamically override absolute SVG height to prevent vertical layout clipping
+      var svgEl = document.querySelector('.serpentine-svg');
+      if (svgEl) {
+        svgEl.setAttribute('height', container.scrollHeight + 'px');
+        svgEl.style.height = container.scrollHeight + 'px';
+      }
+
+      // Get Mr. Prakash (row0) center coordinate
+      var rootPoint = null;
+      var rootRow = document.getElementById('row0');
+      if (rootRow) {
+        var img = rootRow.querySelector('.zigzag-img-frame');
+        if (img) {
+          var rect = img.getBoundingClientRect();
+          rootPoint = {
+            x: rect.left + rect.width / 2 - containerRect.left,
+            y: rect.top + rect.height / 2 - containerRect.top
+          };
+        }
+      }
+      if (!rootPoint) return;
+
+      // 1. Compute India Branch Points
+      var indiaIds = ['row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8'];
+      var indiaPoints = [rootPoint];
+
+      for (var i = 0; i < indiaIds.length; i++) {
+        var id = indiaIds[i];
+        var row = document.getElementById(id);
+        if (row && row.style.display !== 'none' && !row.style.display.includes('none')) {
+          var img = row.querySelector('.zigzag-img-frame');
+          if (img) {
+            var rect = img.getBoundingClientRect();
+            indiaPoints.push({
+              x: rect.left + rect.width / 2 - containerRect.left,
+              y: rect.top + rect.height / 2 - containerRect.top
+            });
+          }
+        }
+      }
+
+      // 2. Compute China Branch Points
+      var chinaIds = ['chinaMember1', 'chinaMember2', 'chinaMember3', 'chinaMember4'];
+      var chinaPoints = [rootPoint];
+
+      var chinaRowContainer = document.getElementById('row2');
+      if (chinaRowContainer && (chinaRowContainer.classList.contains('active-partner') || chinaRowContainer.style.display !== 'none')) {
+        for (var j = 0; j < chinaIds.length; j++) {
+          var id = chinaIds[j];
+          var row = document.getElementById(id);
+          if (row && row.style.display !== 'none' && !row.style.display.includes('none')) {
+            var img = row.querySelector('.zigzag-img-frame');
+            if (img) {
+              var rect = img.getBoundingClientRect();
+              chinaPoints.push({
+                x: rect.left + rect.width / 2 - containerRect.left,
+                y: rect.top + rect.height / 2 - containerRect.top
+              });
+            }
+          }
+        }
+      }
+
+      // 3. Render India Path
+      var pathIndia = document.querySelector('.serpentine-path-india');
+      var glowIndia = document.querySelector('.serpentine-glow-path-india');
+      var dIndia = generateBezierPath(indiaPoints);
+
+      if (pathIndia) {
+        if (dIndia) {
+          pathIndia.setAttribute('d', dIndia);
+          try {
+            var length = pathIndia.getTotalLength() || 0;
+            pathIndia.style.strokeDasharray = length;
+            pathIndia.dataset.length = length;
+          } catch (e) {
+            pathIndia.style.strokeDasharray = 'none';
+            pathIndia.dataset.length = '0';
+          }
+        } else {
+          pathIndia.setAttribute('d', '');
+          pathIndia.style.strokeDasharray = 'none';
+          pathIndia.dataset.length = '0';
+        }
+      }
+      if (glowIndia) {
+        if (dIndia) {
+          glowIndia.setAttribute('d', dIndia);
+          try {
+            var length = glowIndia.getTotalLength() || 0;
+            glowIndia.style.strokeDasharray = length;
+            glowIndia.dataset.length = length;
+          } catch (e) {
+            glowIndia.style.strokeDasharray = 'none';
+            glowIndia.dataset.length = '0';
+          }
+        } else {
+          glowIndia.setAttribute('d', '');
+          glowIndia.style.strokeDasharray = 'none';
+          glowIndia.dataset.length = '0';
+        }
+      }
+
+      // 4. Render China Path
+      var pathChina = document.querySelector('.serpentine-path-china');
+      var glowChina = document.querySelector('.serpentine-glow-path-china');
+      var dChina = generateBezierPath(chinaPoints);
+
+      if (pathChina) {
+        if (dChina) {
+          pathChina.setAttribute('d', dChina);
+          try {
+            var length = pathChina.getTotalLength() || 0;
+            pathChina.style.strokeDasharray = length;
+            pathChina.dataset.length = length;
+          } catch (e) {
+            pathChina.style.strokeDasharray = 'none';
+            pathChina.dataset.length = '0';
+          }
+        } else {
+          pathChina.setAttribute('d', '');
+          pathChina.style.strokeDasharray = 'none';
+          pathChina.dataset.length = '0';
+        }
+      }
+      if (glowChina) {
+        if (dChina) {
+          glowChina.setAttribute('d', dChina);
+          try {
+            var length = glowChina.getTotalLength() || 0;
+            glowChina.style.strokeDasharray = length;
+            glowChina.dataset.length = length;
+          } catch (e) {
+            glowChina.style.strokeDasharray = 'none';
+            glowChina.dataset.length = '0';
+          }
+        } else {
+          glowChina.setAttribute('d', '');
+          glowChina.style.strokeDasharray = 'none';
+          glowChina.dataset.length = '0';
+        }
+      }
+
+      // 5. Clip top to prevent S-curve overflow above CEO portrait center
+      var svgEl = document.querySelector('.serpentine-svg');
+      if (svgEl && rootPoint) {
+        svgEl.style.clipPath = 'inset(' + rootPoint.y + 'px 0 0 0)';
+      }
+    }
+
+    // Call on load and window resize to maintain perfect responsive snapping
+    window.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        if (typeof drawSerpentineRoad === 'function') drawSerpentineRoad();
+        if (typeof updateSerpentineOpacityOnScroll === 'function') updateSerpentineOpacityOnScroll();
+      }, 400);
+    });
+    window.addEventListener('load', function () {
+      if (typeof drawSerpentineRoad === 'function') drawSerpentineRoad();
+      if (typeof updateSerpentineOpacityOnScroll === 'function') updateSerpentineOpacityOnScroll();
+    });
+    window.addEventListener('resize', function () {
+      if (typeof drawSerpentineRoad === 'function') drawSerpentineRoad();
+      if (typeof updateSerpentineOpacityOnScroll === 'function') updateSerpentineOpacityOnScroll();
+    });
+    window.addEventListener('scroll', function () {
+      if (typeof updateSerpentineOpacityOnScroll === 'function') updateSerpentineOpacityOnScroll();
+    });
+  </script>
+  <script>
+    // Safe override to prevent aggressive local file caching on file:// protocol
+    // Refactored to traditional ES5 function syntax to prevent SyntaxErrors in older preview WebView engines!
+
+    // Unified, ultra-robust partner reveal and branch-switching controller
+    function showPartnerDetails(targetRowId) {
+      try {
+        console.log("showPartnerDetails: BEGIN for target -> " + targetRowId);
+
+        var chinaRowContainer = document.getElementById('row2');
+        var isChinaMember = (targetRowId.indexOf('chinaMember') === 0);
+
+        if (!isChinaMember) {
+          console.log("showPartnerDetails: Indian branch chosen. Collapsing China branch.");
+          if (chinaRowContainer) {
+            chinaRowContainer.classList.remove('active-partner');
+            chinaRowContainer.style.display = 'none';
+            chinaRowContainer.classList.remove('visible');
+
+            var chinaRows = chinaRowContainer.querySelectorAll('.zigzag-row');
+            for (var i = 0; i < chinaRows.length; i++) {
+              var row = chinaRows[i];
+              row.style.display = 'none';
+              row.classList.remove('visible');
+              var subNav = row.querySelector('.partner-sub-nav');
+              if (subNav) subNav.classList.remove('active');
+            }
+          }
+        } else {
+          console.log("showPartnerDetails: Chinese branch chosen. Activating China container and revealing ALL members.");
+          if (chinaRowContainer) {
+            chinaRowContainer.classList.add('active-partner');
+            chinaRowContainer.style.display = 'flex';
+            chinaRowContainer.classList.add('visible');
+          }
+
+          // Collapse all India branch rows completely to keep the tree mutual-exclusive
+          console.log("showPartnerDetails: Collapsing India branch rows.");
+          var indiaRows = ['row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8'];
+          for (var j = 0; j < indiaRows.length; j++) {
+            var id = indiaRows[j];
+            var row = document.getElementById(id);
+            if (row) {
+              row.style.display = 'none';
+              row.classList.remove('visible');
+              var subNav = row.querySelector('.partner-sub-nav');
+              if (subNav) subNav.classList.remove('active');
+            }
+          }
+
+          // Make ALL China team members visible together with transition safeguard!
+          var chinaIds = ['chinaMember1', 'chinaMember2', 'chinaMember3', 'chinaMember4'];
+          for (var c = 0; c < chinaIds.length; c++) {
+            var cRow = document.getElementById(chinaIds[c]);
+            if (cRow) {
+              cRow.style.display = 'flex';
+              cRow.style.opacity = '0';
+              // Force layout reflow before triggering transition
+              var tmp = cRow.offsetHeight;
+            }
+          }
+
+          // Trigger transition stagger cleanly on next tick
+          setTimeout(function () {
+            for (var c = 0; c < chinaIds.length; c++) {
+              var cRow = document.getElementById(chinaIds[c]);
+              if (cRow) {
+                cRow.classList.add('visible');
+                cRow.style.opacity = ''; // Reset opacity property so CSS class takes full control
+              }
+            }
+            // Ensure Roy Daksh's sub-navigation is open cleanly inside the timeout
+            var roySubNav = document.querySelector('#chinaMember1 .partner-sub-nav');
+            if (roySubNav) {
+              roySubNav.classList.add('active');
+            }
+          }, 30);
+        }
+
+        var targetRow = document.getElementById(targetRowId);
+        if (targetRow) {
+          console.log("showPartnerDetails: Focusing targetRow -> " + targetRowId);
+          // Show the targeted partner card
+          targetRow.style.display = 'flex';
+
+          // Let it render and add the visible class for staggered entry animation
+          setTimeout(function () {
+            try {
+              targetRow.classList.add('visible');
+              console.log("showPartnerDetails: Stagger class visible added.");
+
+              // AUTOMATICALLY open the sub-navigation for Kunal Pawar (row1) inside render tick
+              if (targetRowId === 'row1') {
+                console.log("showPartnerDetails: Auto-expanding sub-navigation for row1");
+                var subNav = targetRow.querySelector('.partner-sub-nav');
+                if (subNav) {
+                  subNav.classList.add('active');
+                }
+              }
+
+              triggerFluidSerpentineRedraw();
+            } catch (err) {
+              console.log("Error inside render timeout: " + err.message);
+            }
+          }, 30);
+
+          // Smoothly scroll the page to center on this partner row with absolute fallbacks
+          setTimeout(function () {
+            try {
+              console.log("showPartnerDetails: Attempting scrollIntoView for " + targetRowId);
+              targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } catch (scrollError) {
+              console.log("⚠️ Smooth scrollIntoView failed, trying basic scroll.");
+              try {
+                targetRow.scrollIntoView(true);
+              } catch (basicScrollError) {
+                console.log("❌ All scrollIntoView methods failed.");
+              }
+            }
+          }, 100);
+        } else {
+          console.log("❌ targetRow NOT found: " + targetRowId);
+        }
+
+        console.log("showPartnerDetails: SUCCESS for " + targetRowId);
+      } catch (globalError) {
+        console.log("❌ GLOBAL ERROR in showPartnerDetails: " + globalError.message);
+      }
+    }
+
+    // Defensive legacy alias for compatibility
+    function openRoyDaksh() {
+      showPartnerDetails('chinaMember1');
+    }
+
+    // Toggle Roy Daksh's interactive board members sub-navigation list
+    function toggleRoySubNav() {
+      var subNav = document.querySelector('#chinaMember1 .partner-sub-nav');
+      if (subNav) {
+        subNav.classList.toggle('active');
+        triggerFluidSerpentineRedraw();
+      }
+    }
+  </script>
+</body>
+
+</html>
