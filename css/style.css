@@ -201,7 +201,7 @@ body::before {
 
 .partner-sub-nav.active {
   opacity: 1;
-  max-height: 280px; /* Increased to allow 2 rows of avatars to display cleanly without cut-off! */
+  max-height: 350px; /* Fully accommodates up to 3 wrapped rows on narrow screens without vertical clipping */
   transform: translateY(0) scale(1);
   pointer-events: auto;
 }
@@ -1208,28 +1208,10 @@ footer {
     display: block; /* Ensure it wraps as a block element */
   }
   .partner-sub-nav {
-    flex-wrap: nowrap !important; /* Ensure single horizontal row on mobile */
-    overflow-x: auto !important; /* Enable horizontal touch-scrolling */
-    overflow-y: hidden !important; /* Block vertical scroll/overflow */
-    max-width: 100%; /* Bind to viewport width */
-    padding: 10px 5px 12px 5px; /* Give breathing room for scrollbar and hover translations */
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* Smooth inertia scrolling for iOS */
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 242, 254, 0.4) transparent;
-  }
-  .partner-sub-nav::-webkit-scrollbar {
-    height: 4px;
-  }
-  .partner-sub-nav::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .partner-sub-nav::-webkit-scrollbar-thumb {
-    background: rgba(0, 242, 254, 0.4);
-    border-radius: 4px;
+    justify-content: center; /* Center-align wrapped rows on small screens for balanced symmetry */
   }
   .sub-nav-item {
-    flex: 0 0 auto; /* Completely prevent shrinking on small crowded screens! */
+    flex: 0 0 auto; /* Prevent avatar shrinking on tiny screens */
   }
 }
 
