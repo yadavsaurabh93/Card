@@ -363,32 +363,27 @@ body::before {
   gap: 1.2rem;
 }
 
-/* Staggered text reveals */
 .zigzag-role,
 .zigzag-name,
 .zigzag-desc {
   opacity: 0;
-  transform: translateY(20px);
-  will-change: transform, opacity;
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Delay each element's fade-in so they appear in sequence */
 .zigzag-row.visible .zigzag-role {
   opacity: 1;
-  transform: translateY(0);
   transition-delay: 0.15s;
 }
 
 .zigzag-row.visible .zigzag-name {
   opacity: 1;
-  transform: translateY(0);
   transition-delay: 0.3s;
 }
 
 .zigzag-row.visible .zigzag-desc {
   opacity: 1;
-  transform: translateY(0);
   transition-delay: 0.45s;
 }
 
