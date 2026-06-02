@@ -1146,7 +1146,7 @@ footer {
   transition: all 0.4s ease;
   animation: quotePulse 4s infinite alternate ease-in-out;
   width: fit-content; /* Shrinks container perfectly around the quote length */
-  max-width: 100%;    /* Binds width on mobile to prevent horizontal overflow */
+  max-width: none;    /* Let the container expand past parent width on desktop to prevent text cut-off! */
 }
 
 .ceo-quote-container::before {
@@ -1178,6 +1178,9 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .ceo-quote-container {
+    max-width: 100%; /* Bind container width on mobile to prevent horizontal overflow */
+  }
   .ceo-quote-text {
     white-space: normal; /* Allow text wrapping on mobile to prevent horizontal overflow */
   }
