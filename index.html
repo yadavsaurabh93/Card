@@ -1511,6 +1511,24 @@
               if (subNav) subNav.classList.remove('active');
             }
           }
+
+          // Make ALL Indian team members visible together!
+          console.log("showPartnerDetails: Revealing ALL Indian branch rows.");
+          var indiaRows = ['row1', 'row4', 'row9', 'row6', 'row5', 'row3', 'row7', 'row8'];
+          for (var j = 0; j < indiaRows.length; j++) {
+            var id = indiaRows[j];
+            var row = document.getElementById(id);
+            if (row) {
+              row.style.display = 'flex';
+              row.classList.add('visible');
+            }
+          }
+
+          // Automatically open the sub-navigation for Kunal Pawar (row1)
+          var kunalSubNav = document.querySelector('#row1 .partner-sub-nav');
+          if (kunalSubNav) {
+            kunalSubNav.classList.add('active');
+          }
         } else {
           console.log("showPartnerDetails: Chinese branch chosen. Activating China container and revealing ALL members.");
           if (chinaRowContainer) {
