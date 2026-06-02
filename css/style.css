@@ -1192,10 +1192,38 @@ footer {
 
 @media (max-width: 768px) {
   .ceo-quote-container {
+    width: 100%; /* Ensure container takes full available width on mobile */
     max-width: 100%; /* Bind container width on mobile to prevent horizontal overflow */
+    border-radius: 12px; /* Smooth rounded corners for mobile */
+    padding: 1.2rem 1.4rem; /* Slightly compact padding on smaller viewports */
   }
   .ceo-quote-text {
     white-space: normal; /* Allow text wrapping on mobile to prevent horizontal overflow */
+    font-size: 0.95rem; /* Slightly smaller, highly readable font size on mobile */
+    display: block; /* Ensure it wraps as a block element */
+  }
+  .partner-sub-nav {
+    overflow-x: auto !important; /* Enable horizontal touch-scrolling */
+    overflow-y: hidden !important; /* Block vertical scroll/overflow */
+    max-width: 100%; /* Bind to viewport width */
+    padding: 10px 5px 12px 5px; /* Give breathing room for scrollbar and hover translations */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth inertia scrolling for iOS */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 242, 254, 0.4) transparent;
+  }
+  .partner-sub-nav::-webkit-scrollbar {
+    height: 4px;
+  }
+  .partner-sub-nav::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .partner-sub-nav::-webkit-scrollbar-thumb {
+    background: rgba(0, 242, 254, 0.4);
+    border-radius: 4px;
+  }
+  .sub-nav-item {
+    flex: 0 0 auto; /* Completely prevent shrinking on small crowded screens! */
   }
 }
 
