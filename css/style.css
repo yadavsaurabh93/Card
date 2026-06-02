@@ -230,6 +230,10 @@ body::before {
   filter: grayscale(100%);
 }
 
+.sub-nav-avatar[src*="bhavesh"] {
+  object-position: center 25% !important; /* Centers Bhavesh's face perfectly inside the circle */
+}
+
 .sub-nav-item:hover .sub-nav-avatar {
   border-color: var(--accent);
   filter: grayscale(0%);
