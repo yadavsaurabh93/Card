@@ -1165,14 +1165,8 @@ footer {
   display: inline-block;
   padding-right: 4px;
   min-height: 1.8rem; /* Prevent layout shift for single line */
-  white-space: nowrap; /* Force the quote to strictly occupy exactly one single line! */
+  white-space: normal; /* Let the text wrap naturally to keep layout 100% constant and stable */
   opacity: 0; /* Hidden initially until typewriter script starts! */
-}
-
-@media (max-width: 768px) {
-  .ceo-quote-text {
-    white-space: normal; /* Allow wrapping on mobile to prevent overflow and truncation */
-  }
 }
 
 .typing-cursor {
