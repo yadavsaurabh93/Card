@@ -13,7 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=55.0">
+  <link rel="stylesheet" href="css/style.css?v=56.0">
 
   <!-- Premium Brand Favicon -->
   <link rel="icon" type="image/png" href="images/logo4.png">
@@ -1479,6 +1479,18 @@
     function showPartnerDetails(targetRowId) {
       try {
         console.log("showPartnerDetails: BEGIN for target -> " + targetRowId);
+
+        // Reset and apply active styling to matching sub-nav avatars dynamically
+        var allSubNavItems = document.querySelectorAll('.sub-nav-item');
+        for (var k = 0; k < allSubNavItems.length; k++) {
+          var item = allSubNavItems[k];
+          var onClickStr = item.getAttribute('onclick') || '';
+          if (onClickStr.indexOf("'" + targetRowId + "'") !== -1 || onClickStr.indexOf('"' + targetRowId + '"') !== -1) {
+            item.classList.add('active-avatar');
+          } else {
+            item.classList.remove('active-avatar');
+          }
+        }
 
         var chinaRowContainer = document.getElementById('row2');
         var isChinaMember = (targetRowId.indexOf('chinaMember') === 0);

@@ -235,9 +235,10 @@ body::before {
   object-position: center 25% !important; /* Centers Bhavesh's face perfectly inside the circle */
 }
 
-.sub-nav-item:hover .sub-nav-avatar {
+.sub-nav-item:hover .sub-nav-avatar,
+.sub-nav-item.active-avatar .sub-nav-avatar {
   border-color: var(--accent);
-  filter: grayscale(0%);
+  filter: grayscale(0%) !important;
   box-shadow: 0 10px 25px var(--accent-glow);
 }
 
@@ -250,7 +251,8 @@ body::before {
   transition: color 0.4s ease;
 }
 
-.sub-nav-item:hover .sub-nav-name {
+.sub-nav-item:hover .sub-nav-name,
+.sub-nav-item.active-avatar .sub-nav-name {
   color: #ffffff;
 }
 
