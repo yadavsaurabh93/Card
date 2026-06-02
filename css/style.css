@@ -236,7 +236,9 @@ body::before {
 }
 
 .sub-nav-item:hover .sub-nav-avatar,
-.sub-nav-item.active-avatar .sub-nav-avatar {
+.sub-nav-item:active .sub-nav-avatar,
+.sub-nav-item.active-avatar .sub-nav-avatar,
+.sub-nav-item.touch-hover .sub-nav-avatar {
   border-color: var(--accent);
   filter: grayscale(0%) !important;
   box-shadow: 0 10px 25px var(--accent-glow);
@@ -252,7 +254,9 @@ body::before {
 }
 
 .sub-nav-item:hover .sub-nav-name,
-.sub-nav-item.active-avatar .sub-nav-name {
+.sub-nav-item:active .sub-nav-name,
+.sub-nav-item.active-avatar .sub-nav-name,
+.sub-nav-item.touch-hover .sub-nav-name {
   color: #ffffff;
 }
 
@@ -362,17 +366,21 @@ body::before {
 #row8 .zigzag-img { object-position: center 14%; } /* Bhavesh Vaishnav */
 #row9 .zigzag-img { object-position: center 14%; } /* Punam Patil */
 
-.zigzag-row:hover .zigzag-img-frame {
+.zigzag-row:hover .zigzag-img-frame,
+.zigzag-row:active .zigzag-img-frame,
+.zigzag-row.touch-hover .zigzag-img-frame {
   transform: translateY(-6px);
   border-color: rgba(255, 255, 255, 0.85);
-  /* Border glows to white on hover */
+  /* Border glows to white on hover/active/touch */
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25), 0 0 20px var(--accent-glow);
 }
 
-.zigzag-row:hover .zigzag-img {
+.zigzag-row:hover .zigzag-img,
+.zigzag-row:active .zigzag-img,
+.zigzag-row.touch-hover .zigzag-img {
   transform: scale(1.05);
-  filter: grayscale(0%);
-  /* Smoothly transitions back to full rich color on hover! */
+  filter: grayscale(0%) !important;
+  /* Smoothly transitions back to full rich color on hover/active/touch! */
 }
 
 /* Text Block Styling with Staggered Intro Reveals */

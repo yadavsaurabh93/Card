@@ -13,7 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=56.0">
+  <link rel="stylesheet" href="css/style.css?v=57.0">
 
   <!-- Premium Brand Favicon -->
   <link rel="icon" type="image/png" href="images/logo4.png">
@@ -1627,8 +1627,45 @@
       }
     }
 
+    // Dynamic Touch Hover Emulator for Mobile Devices to support finger hover/press colors
+    function initTouchHoverEmulator() {
+      // 1. Emulate touch hover for sub-nav items
+      var subNavItems = document.querySelectorAll('.sub-nav-item');
+      for (var i = 0; i < subNavItems.length; i++) {
+        var item = subNavItems[i];
+        item.addEventListener('touchstart', function () {
+          this.classList.add('touch-hover');
+        }, { passive: true });
+        item.addEventListener('touchend', function () {
+          this.classList.remove('touch-hover');
+        }, { passive: true });
+        item.addEventListener('touchcancel', function () {
+          this.classList.remove('touch-hover');
+        }, { passive: true });
+      }
+
+      // 2. Emulate touch hover for main team circular portraits
+      var zigzagFrames = document.querySelectorAll('.zigzag-img-frame');
+      for (var j = 0; j < zigzagFrames.length; j++) {
+        var frame = zigzagFrames[j];
+        frame.addEventListener('touchstart', function () {
+          var row = this.closest('.zigzag-row');
+          if (row) row.classList.add('touch-hover');
+        }, { passive: true });
+        frame.addEventListener('touchend', function () {
+          var row = this.closest('.zigzag-row');
+          if (row) row.classList.remove('touch-hover');
+        }, { passive: true });
+        frame.addEventListener('touchcancel', function () {
+          var row = this.closest('.zigzag-row');
+          if (row) row.classList.remove('touch-hover');
+        }, { passive: true });
+      }
+    }
+
     // Lazy-load maps to bypass browser security extension scans (McAfee false-positives)
     document.addEventListener("DOMContentLoaded", function () {
+      initTouchHoverEmulator();
       setTimeout(function () {
         var iframes = document.querySelectorAll('iframe[data-src]');
         iframes.forEach(function (iframe) {
