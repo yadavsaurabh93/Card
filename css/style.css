@@ -156,7 +156,7 @@ body::before {
 }
 
 #imgFrame0::after {
-  content: "VIEW PARTNERS";
+  content: "VIEW TEAM";
   position: absolute;
   bottom: 45px;
   left: 50%;
