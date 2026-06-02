@@ -1173,6 +1173,12 @@ footer {
   opacity: 0; /* Hidden initially until typewriter script starts! */
 }
 
+@media (max-width: 768px) {
+  .ceo-quote-text {
+    white-space: normal; /* Allow wrapping on mobile to prevent overflow and truncation */
+  }
+}
+
 .typing-cursor {
   border-right: 2.5px solid #00f2fe;
   animation: blink-caret 0.75s step-end infinite;
