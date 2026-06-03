@@ -271,6 +271,8 @@ body::before {
   #row3 { flex-direction: row; }          /* Yadav Saurabh - Image Left, Text Right */
   #row7 { flex-direction: row-reverse; }  /* Mistry Mihir - Image Right, Text Left */
   #row8 { flex-direction: row; }          /* Bhavesh Vaishnav - Image Left, Text Right */
+  #row10 { flex-direction: row-reverse; } /* Jagdish bhavani - Image Right, Text Left */
+  #row11 { flex-direction: row; }          /* Vinu Kumar - Image Left, Text Right */
   #chinaMember1 { flex-direction: row-reverse; } /* Roy Daksh - Image Right, Text Left to match Kunal Pawar! */
   #chinaMember2 { flex-direction: row; }         /* Niraj Vagahasiya - Image Left, Text Right */
   #chinaMember3 { flex-direction: row-reverse; } /* Tank Shivansh - Image Right, Text Left */
