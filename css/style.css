@@ -18,18 +18,33 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+html {
+  background: var(--bg-gradient);
+  min-height: 100vh;
+}
+
 body {
   font-family: var(--font-body);
-  background: var(--bg-gradient);
+  background: transparent;
   color: var(--text-color);
   min-height: 100vh;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 20px 100px 20px;
+  padding: 0;
   position: relative;
   transition: background 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#webgl-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Ultra-luxury cosmic ambient background blobs */
@@ -78,6 +93,7 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 80px 20px 100px 20px;
 }
 
 /* Portal Branding Header */
@@ -118,6 +134,7 @@ body::before {
   font-weight: 900;
   letter-spacing: -1.5px;
   background: linear-gradient(180deg, #ffffff 30%, rgba(255, 255, 255, 0.7) 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -201,7 +218,7 @@ body::before {
 
 .partner-sub-nav.active {
   opacity: 1;
-  max-height: 350px; /* Fully accommodates up to 3 wrapped rows on narrow screens without vertical clipping */
+  max-height: 600px; /* Fully accommodates up to 4+ wrapped rows on narrow screens without vertical clipping */
   transform: translateY(0) scale(1);
   pointer-events: auto;
 }
@@ -637,13 +654,15 @@ body::before {
   transition: opacity 0.4s ease;
 }
 
-.card:hover {
+.card:hover,
+.card.touch-hover {
   transform: translateY(-6px);
   border-bottom-color: #ffffff;
   background: rgba(255, 255, 255, 0.04);
 }
 
-.card:hover .card-glow-overlay {
+.card:hover .card-glow-overlay,
+.card.touch-hover .card-glow-overlay {
   opacity: 1;
 }
 
@@ -1049,7 +1068,8 @@ footer {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.team-member:hover {
+.team-member:hover,
+.team-member.touch-hover {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.12);
   transform: translateX(6px);
@@ -1069,7 +1089,8 @@ footer {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.team-member:hover .member-avatar-wrap {
+.team-member:hover .member-avatar-wrap,
+.team-member.touch-hover .member-avatar-wrap {
   border-color: #ef4444;
   box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
 }
@@ -1337,7 +1358,8 @@ footer {
   -webkit-backdrop-filter: blur(20px);
 }
 
-.warehouse-card:hover {
+.warehouse-card:hover,
+.warehouse-card.touch-hover {
   transform: translateY(-8px);
   border-color: rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.06);
@@ -1399,7 +1421,328 @@ footer {
   transition: border-color 0.6s ease;
 }
 
-.warehouse-card:hover .map-container {
+.warehouse-card:hover .map-container,
+.warehouse-card.touch-hover .map-container {
   border-color: rgba(219, 39, 119, 0.4);
 }
 
+/* ======================================================== */
+/* CINEMATIC PORTAL ZOOM COVER OVERLAY STYLING             */
+/* ======================================================== */
+
+.portal-cinematic-intro {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #0c0d12 0%, #050508 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.9);
+}
+
+.pin-spacer {
+  flex-shrink: 0 !important;
+}
+
+.cinematic-scaler-container {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cinematic-scaler {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: 46.5% 33%; /* Precision alignment on Mr. Prakash's left eye pupil */
+  will-change: transform;
+}
+
+.circular-portrait-frame {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(0, 229, 255, 0.6);
+  box-shadow: 0 0 50px rgba(0, 229, 255, 0.4), inset 0 0 30px rgba(0, 229, 255, 0.25);
+  position: relative;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.45);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  will-change: border-color, box-shadow;
+}
+
+.circular-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+/* Futuristic HUD Telemetry Rings */
+.hud-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 2px dashed rgba(0, 229, 255, 0.3);
+  transition: border-color 0.4s ease;
+  will-change: border-color;
+}
+
+.ring-outer {
+  width: 320px;
+  height: 320px;
+  animation: rotateCW 24s linear infinite;
+  border-style: dotted;
+  border-width: 3px;
+  opacity: 0.85;
+}
+
+.ring-middle {
+  width: 288px;
+  height: 288px;
+  animation: rotateCCW 16s linear infinite;
+  border-color: rgba(59, 130, 246, 0.4);
+  border-style: dashed;
+  opacity: 0.75;
+}
+
+.ring-inner {
+  width: 258px;
+  height: 258px;
+  animation: rotateCW 10s linear infinite;
+  border-color: rgba(219, 39, 119, 0.5);
+  border-width: 1.5px;
+  opacity: 0.9;
+}
+
+@keyframes rotateCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCCW {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Cinematic overlay text styling */
+.cinematic-overlay-text {
+  position: absolute;
+  bottom: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 15;
+  text-align: center;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.telemetry-bar {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #00e5ff;
+  letter-spacing: 3px;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.logo-title {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+  margin-bottom: 0.2rem;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+}
+
+.pulse-indicator {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulseGlow 2s infinite;
+}
+
+.scroll-arrow {
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.75);
+  animation: bounceArrow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.4);
+    border-color: rgba(0, 229, 255, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(0, 229, 255, 0);
+    border-color: rgba(0, 229, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
+    border-color: rgba(0, 229, 255, 0.2);
+  }
+}
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+/* ======================================================== */
+/* CINEMATIC LUXURY PRELOADER STYLING                       */
+/* ======================================================== */
+
+.portal-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, #0e1013 0%, #030304 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  overflow: hidden;
+  opacity: 1;
+}
+
+#preloader-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.luxury-logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-logo-container.reveal {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.luxury-logo-img {
+  width: 220px;
+  height: auto;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.4));
+}
+
+.luxury-logo-text {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: 8px;
+  background: linear-gradient(135deg, #ffe082 0%, #fff8e1 25%, #cfd8dc 50%, #ffe082 75%, #ffb300 100%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(255, 179, 0, 0.35);
+  margin-bottom: 1rem;
+  animation: goldSilverSweep 4s linear infinite;
+  text-transform: uppercase;
+}
+
+.luxury-subtitle {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-subtitle.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flash-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,215,0,0.35) 60%, rgba(0,0,0,1) 100%);
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+@keyframes goldSilverSweep {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 768px) {
+  .luxury-logo-text {
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+  }
+  .luxury-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 6px;
+  }
+}
