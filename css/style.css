@@ -512,6 +512,14 @@ body::before {
   animation-delay: 0.2s;
 }
 
+.featured-card-container {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2.5rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
 .orb-container {
   position: relative;
   width: 180px;
