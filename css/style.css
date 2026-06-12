@@ -278,7 +278,7 @@ body::before {
 }
 
 /* Explicit staggered alternating layouts on desktop to guarantee perfect Left-Right zigzagging */
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
   #row0 { flex-direction: row; }          /* Mr. Prakash Pragjibhai Kachchhi - Image Left, Text Right */
   #row1 { flex-direction: row-reverse; }  /* Kunal Pawar - Image Right, Text Left */
   #row4 { flex-direction: row; }          /* Aditya Bhavani - Image Left, Text Right */
@@ -412,7 +412,7 @@ body::before {
   gap: 1.2rem;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
   .zigzag-text-block {
     flex: 0 0 544px;
     width: 544px;
@@ -470,7 +470,7 @@ body::before {
 }
 
 /* Responsive Mobile Overrides */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .portal-title {
     font-size: 2.6rem;
   }
@@ -479,7 +479,7 @@ body::before {
     flex-direction: column !important;
     gap: 3rem;
     text-align: center;
-    padding: 4rem 0;
+    padding: 4rem 20px; /* Added 20px horizontal padding to prevent edge clipping on mobile/tablet viewports */
   }
 
   .zigzag-img-frame {
@@ -980,7 +980,7 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .nav-arrow {
     width: 48px;
     height: 48px;
@@ -1140,7 +1140,7 @@ footer {
 }
 
 /* Continuous SVG Serpentine Winding Cyan Ribbon styling */
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
   .serpentine-svg {
     position: absolute;
     top: 0;
@@ -1176,7 +1176,7 @@ footer {
 }
 
 /* Hide line on mobile to keep centered cards neat */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .serpentine-svg {
     display: none;
   }
@@ -1230,7 +1230,7 @@ footer {
   opacity: 0; /* Hidden initially until typewriter script starts! */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .ceo-quote-container {
     width: 100%; /* Ensure container takes full available width on mobile */
     max-width: 100%; /* Bind container width on mobile to prevent horizontal overflow */
@@ -1340,7 +1340,7 @@ footer {
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .warehouses-grid {
     grid-template-columns: 1fr;
   }
@@ -1736,7 +1736,7 @@ footer {
   100% { background-position: 0% 50%; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .luxury-logo-text {
     font-size: 1.8rem;
     letter-spacing: 4px;
