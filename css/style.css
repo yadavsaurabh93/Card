@@ -152,14 +152,15 @@ body::before {
 .zigzag-row {
   display: flex; /* Continuous scrolling editorial story flow */
   align-items: center;
-  gap: 6rem;
+  gap: clamp(2rem, 6vw, 6rem);
   width: 100%;
-  padding: 5rem 0;
+  padding: 5rem 2.5rem; /* Added horizontal padding to prevent edge cutoffs */
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   opacity: 0;
   transform: translateY(80px) scale(0.95); /* Deep luxury cinematic entry depth */
   will-change: transform, opacity;
   transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
 .zigzag-row.visible {
@@ -308,9 +309,11 @@ body::before {
 
 /* LUXURY PREMIUM CIRCULAR PORTRAIT WINDOW */
 .zigzag-img-frame {
-  flex: 0 0 360px;
-  width: 360px;
-  height: 360px;
+  flex: 0 1 360px;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   border-radius: 50%;
   /* Perfect circular frame mask */
   overflow: hidden;
@@ -414,8 +417,7 @@ body::before {
 
 @media (min-width: 1025px) {
   .zigzag-text-block {
-    flex: 0 0 544px;
-    width: 544px;
+    flex: 1;
     max-width: 544px; /* Locked desktop width to guarantee zero layout recalculation shifts! */
   }
 }
@@ -638,6 +640,10 @@ body::before {
 
 .grid>div:nth-child(6) {
   animation-delay: 0.7s;
+}
+
+.grid>div:nth-child(7) {
+  animation-delay: 0.78s;
 }
 
 /* Cursor tracking spotlight hover */
