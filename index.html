@@ -1056,9 +1056,11 @@
 
         var container = quoteEl.closest('.ceo-quote-container');
         if (container) {
-          // Measure and lock the height to prevent any layout shifts or jumping!
+          // Measure and lock the height and width to prevent any layout shifts or jumping!
           var currentHeight = container.offsetHeight;
+          var currentWidth = container.offsetWidth;
           container.style.minHeight = currentHeight + 'px';
+          container.style.minWidth = currentWidth + 'px';
         }
 
         // Read target text and reset content
@@ -1081,8 +1083,9 @@
             setTimeout(function () {
               quoteEl.classList.remove('typing-cursor');
               if (container) {
-                // Remove the locked min-height so it remains fluid and responsive on resize!
+                // Remove the locked styles so it remains fluid and responsive on resize!
                 container.style.minHeight = '';
+                container.style.minWidth = '';
               }
             }, 1500);
           }

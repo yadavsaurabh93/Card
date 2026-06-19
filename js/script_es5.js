@@ -123,6 +123,15 @@ function triggerQuoteTyping() {
     var quoteEl = document.getElementById('ceoQuoteText');
     if (!quoteEl) return;
     
+    var container = quoteEl.closest('.ceo-quote-container');
+    if (container) {
+      // Measure and lock the height and width to prevent any layout shifts or jumping!
+      var currentHeight = container.offsetHeight;
+      var currentWidth = container.offsetWidth;
+      container.style.minHeight = currentHeight + 'px';
+      container.style.minWidth = currentWidth + 'px';
+    }
+
     // Read target text and reset content
     var text = quoteEl.innerText || quoteEl.textContent || "वसुधैव कुटुम्बकम के संस्कारो से तपाकर बनते है कलयुग के महाधनुर्धारी अर्जुन ।";
     quoteEl.textContent = ''; 
@@ -142,6 +151,11 @@ function triggerQuoteTyping() {
         // Retain blinking cursor for 1.5 seconds after completion, then fade it out cleanly
         setTimeout(function() {
           quoteEl.classList.remove('typing-cursor');
+          if (container) {
+            // Remove the locked styles so it remains fluid and responsive on resize!
+            container.style.minHeight = '';
+            container.style.minWidth = '';
+          }
         }, 1500);
       }
     }

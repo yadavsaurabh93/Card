@@ -309,7 +309,7 @@ body::before {
 
 /* LUXURY PREMIUM CIRCULAR PORTRAIT WINDOW */
 .zigzag-img-frame {
-  flex: 0 1 360px;
+  flex: 0 0 360px;
   width: 100%;
   max-width: 360px;
   aspect-ratio: 1 / 1;
@@ -1213,7 +1213,8 @@ footer {
   transition: all 0.4s ease;
   animation: quotePulse 4s infinite alternate ease-in-out;
   width: fit-content; /* Shrinks container perfectly around the quote length */
-  max-width: none;    /* Let the container expand past parent width on desktop to prevent text cut-off! */
+  max-width: none;    /* Allow quote to span full single line on desktop */
+  box-sizing: border-box;
 }
 
 .ceo-quote-container::before {
@@ -1240,7 +1241,7 @@ footer {
   display: inline-block;
   padding-right: 4px;
   min-height: 1.8rem; /* Prevent layout shift for single line */
-  white-space: nowrap; /* Force the quote to strictly occupy exactly one single line on desktop! */
+  white-space: nowrap; /* Keep quote in a single line on desktop */
   opacity: 0; /* Hidden initially until typewriter script starts! */
 }
 
