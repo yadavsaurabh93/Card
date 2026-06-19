@@ -150,14 +150,17 @@ body::before {
 }
 
 .zigzag-row {
-  display: flex; /* Continuous scrolling editorial story flow */
+  display: flex;
+  /* Continuous scrolling editorial story flow */
   align-items: center;
   gap: clamp(2rem, 6vw, 6rem);
   width: 100%;
-  padding: 5rem 2.5rem; /* Added horizontal padding to prevent edge cutoffs */
+  padding: 5rem 2.5rem;
+  /* Added horizontal padding to prevent edge cutoffs */
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   opacity: 0;
-  transform: translateY(80px) scale(0.95); /* Deep luxury cinematic entry depth */
+  transform: translateY(80px) scale(0.95);
+  /* Deep luxury cinematic entry depth */
   will-change: transform, opacity;
   transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
@@ -204,22 +207,25 @@ body::before {
 /* Sub-Navigation styling for dynamic partner selection */
 .partner-sub-nav {
   display: flex;
-  flex-wrap: wrap; /* Wrap elements on desktop so they stack beautifully instead of clipping! */
-  gap: 16px 22px; /* Tight row gap and comfortable column gap for grid packing */
+  flex-wrap: wrap;
+  /* Wrap elements on desktop so they stack beautifully instead of clipping! */
+  gap: 16px 22px;
+  /* Tight row gap and comfortable column gap for grid packing */
   margin-top: 1.5rem;
   opacity: 0;
   max-height: 0;
   overflow: hidden;
   transform: translateY(-15px) scale(0.95);
   pointer-events: none;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .partner-sub-nav.active {
   opacity: 1;
-  max-height: 600px; /* Fully accommodates up to 4+ wrapped rows on narrow screens without vertical clipping */
+  max-height: 600px;
+  /* Fully accommodates up to 4+ wrapped rows on narrow screens without vertical clipping */
   transform: translateY(0) scale(1);
   pointer-events: auto;
 }
@@ -245,12 +251,14 @@ body::before {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   object-fit: cover;
-  object-position: center 15%; /* Prevents top cutoff in small round avatars */
+  object-position: center 15%;
+  /* Prevents top cutoff in small round avatars */
   filter: grayscale(100%);
 }
 
 .sub-nav-avatar[src*="bhavesh"] {
-  object-position: center 25% !important; /* Centers Bhavesh's face perfectly inside the circle */
+  object-position: center 25% !important;
+  /* Centers Bhavesh's face perfectly inside the circle */
 }
 
 .sub-nav-item:hover .sub-nav-avatar,
@@ -280,27 +288,88 @@ body::before {
 
 /* Explicit staggered alternating layouts on desktop to guarantee perfect Left-Right zigzagging */
 @media (min-width: 1025px) {
-  #row0 { flex-direction: row; }          /* Mr. Prakash Pragjibhai Kachchhi - Image Left, Text Right */
-  #row1 { flex-direction: row-reverse; }  /* Kunal Pawar - Image Right, Text Left */
-  #row4 { flex-direction: row; }          /* Aditya Bhavani - Image Left, Text Right */
-  #row9 { flex-direction: row-reverse; }  /* Punam Patil - Image Right, Text Left */
-  #row6 { flex-direction: row; }          /* Kajal Tiwari - Image Left, Text Right */
-  #row5 { flex-direction: row-reverse; }  /* Anshu Maurya - Image Right, Text Left */
-  #row3 { flex-direction: row; }          /* Yadav Saurabh - Image Left, Text Right */
-  #row7 { flex-direction: row-reverse; }  /* Mistry Mihir - Image Right, Text Left */
-  #row8 { flex-direction: row; }          /* Bhavesh Vaishnav - Image Left, Text Right */
-  #row10 { flex-direction: row-reverse; } /* Jagdish bhavani - Image Right, Text Left */
-  #row11 { flex-direction: row; }          /* Vinu Kumar - Image Left, Text Right */
-  #chinaMember1 { flex-direction: row-reverse; } /* Roy Daksh - Image Right, Text Left to match Kunal Pawar! */
-  #chinaMember2 { flex-direction: row; }         /* Niraj Vagahasiya - Image Left, Text Right */
-  #chinaMember3 { flex-direction: row-reverse; } /* Tank Shivansh - Image Right, Text Left */
-  #chinaMember4 { flex-direction: row; }         /* Tom Bhai - Image Left, Text Right */
+  #row0 {
+    flex-direction: row;
+  }
+
+  /* Mr. Prakash Pragjibhai Kachchhi - Image Left, Text Right */
+  #row1 {
+    flex-direction: row-reverse;
+  }
+
+  /* Kunal Pawar - Image Right, Text Left */
+  #row4 {
+    flex-direction: row;
+  }
+
+  /* Aditya Bhavani - Image Left, Text Right */
+  #row9 {
+    flex-direction: row-reverse;
+  }
+
+  /* Punam Patil - Image Right, Text Left */
+  #row6 {
+    flex-direction: row;
+  }
+
+  /* Kajal Tiwari - Image Left, Text Right */
+  #row5 {
+    flex-direction: row-reverse;
+  }
+
+  /* Anshu Maurya - Image Right, Text Left */
+  #row3 {
+    flex-direction: row;
+  }
+
+  /* Yadav Saurabh - Image Left, Text Right */
+  #row7 {
+    flex-direction: row-reverse;
+  }
+
+  /* Mistry Mihir - Image Right, Text Left */
+  #row8 {
+    flex-direction: row;
+  }
+
+  /* Bhavesh Vaishnav - Image Left, Text Right */
+  #row10 {
+    flex-direction: row-reverse;
+  }
+
+  /* Jagdish bhavani - Image Right, Text Left */
+  #row11 {
+    flex-direction: row;
+  }
+
+  /* Vinu Kumar - Image Left, Text Right */
+  #chinaMember1 {
+    flex-direction: row-reverse;
+  }
+
+  /* Roy Daksh - Image Right, Text Left to match Kunal Pawar! */
+  #chinaMember2 {
+    flex-direction: row;
+  }
+
+  /* Niraj Vagahasiya - Image Left, Text Right */
+  #chinaMember3 {
+    flex-direction: row-reverse;
+  }
+
+  /* Tank Shivansh - Image Right, Text Left */
+  #chinaMember4 {
+    flex-direction: row;
+  }
+
+  /* Tom Bhai - Image Left, Text Right */
 }
 
 /* PREMIUM CHINA TEAM CARD TRANSITIONS */
 .china-member-card {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease, background 0.6s ease;
 }
+
 .china-member-card:hover {
   transform: translateY(-8px) scale(1.02);
   border-color: rgba(255, 255, 255, 0.2) !important;
@@ -309,9 +378,9 @@ body::before {
 
 /* LUXURY PREMIUM CIRCULAR PORTRAIT WINDOW */
 .zigzag-img-frame {
-  flex: 0 0 480px;
+  flex: 0 0 450px;
   width: 100%;
-  max-width: 480px;
+  max-width: 450px;
   aspect-ratio: 1 / 1;
   height: auto;
   border-radius: 50%;
@@ -361,8 +430,8 @@ body::before {
   position: relative;
   z-index: 2;
   opacity: 0;
-  /* Initial state: No scale or shift, starts fully steady */
-  transform: none;
+  /* Zoomed in to make the person's face/subject larger inside the circle frame */
+  transform: scale(1.35);
   will-change: transform, opacity;
   filter: grayscale(100%);
   /* Default luxury grayscale style */
@@ -373,22 +442,70 @@ body::before {
 /* When section is scrolled into view or switched, fade in smoothly without zoom-in stutter */
 .zigzag-row.visible .zigzag-img {
   opacity: 1;
-  transform: none;
+  transform: scale(1.35);
 }
 
 /* Premium board member portrait alignment to completely prevent head, hair, and suit cutoff */
-#row0 .zigzag-img { object-position: center 12%; } /* Mr. Prakash Pragjibhai Kachchhi */
-#row1 .zigzag-img { object-position: center 14%; } /* Kunal Pawar */
-#row2 .zigzag-img { object-position: center 16%; } /* Roy Daksh */
-#row3 .zigzag-img { object-position: center 14%; } /* Yadav Saurabh */
-#row4 .zigzag-img { object-position: center 14%; } /* Aditya bhavani */
-#row5 .zigzag-img { object-position: center 18%; } /* Anshu Maurya */
-#row6 .zigzag-img { object-position: center 14%; } /* Kajal Tiwari */
-#row7 .zigzag-img { object-position: center 14%; } /* Mistry Mihir */
-#row8 .zigzag-img { object-position: center 14%; } /* Bhavesh Vaishnav */
-#row9 .zigzag-img { object-position: center 14%; } /* Punam Patil */
-#row10 .zigzag-img { object-position: center 12%; } /* Jagdish Bhai */
-#row11 .zigzag-img { object-position: center 12%; } /* Vinu Kumar */
+#row0 .zigzag-img {
+  object-position: center 12%;
+}
+
+/* Mr. Prakash Pragjibhai Kachchhi */
+#row1 .zigzag-img {
+  object-position: center 14%;
+}
+
+/* Kunal Pawar */
+#row2 .zigzag-img {
+  object-position: center 16%;
+}
+
+/* Roy Daksh */
+#row3 .zigzag-img {
+  object-position: center 14%;
+}
+
+/* Yadav Saurabh */
+#row4 .zigzag-img {
+  object-position: center 14%;
+}
+
+/* Aditya bhavani */
+#row5 .zigzag-img {
+  object-position: center 18%;
+}
+
+/* Anshu Maurya */
+#row6 .zigzag-img {
+  object-position: center 14%;
+}
+
+/* Kajal Tiwari */
+#row7 .zigzag-img {
+  object-position: center 14%;
+}
+
+/* Mistry Mihir */
+#row8 .zigzag-img {
+  object-position: center 14%;
+}
+
+/* Bhavesh Vaishnav */
+#row9 .zigzag-img {
+  object-position: center 14%;
+}
+
+/* Punam Patil */
+#row10 .zigzag-img {
+  object-position: center 12%;
+}
+
+/* Jagdish Bhai */
+#row11 .zigzag-img {
+  object-position: center 12%;
+}
+
+/* Vinu Kumar */
 
 .zigzag-row:hover .zigzag-img-frame,
 .zigzag-row:active .zigzag-img-frame,
@@ -402,7 +519,7 @@ body::before {
 .zigzag-row:hover .zigzag-img,
 .zigzag-row:active .zigzag-img,
 .zigzag-row.touch-hover .zigzag-img {
-  transform: scale(1.05);
+  transform: scale(1.42);
   filter: grayscale(0%) !important;
   /* Smoothly transitions back to full rich color on hover/active/touch! */
 }
@@ -418,7 +535,8 @@ body::before {
 @media (min-width: 1025px) {
   .zigzag-text-block {
     flex: 1;
-    max-width: 544px; /* Locked desktop width to guarantee zero layout recalculation shifts! */
+    max-width: 544px;
+    /* Locked desktop width to guarantee zero layout recalculation shifts! */
   }
 }
 
@@ -481,7 +599,8 @@ body::before {
     flex-direction: column !important;
     gap: 3rem;
     text-align: center;
-    padding: 4rem 20px; /* Added 20px horizontal padding to prevent edge clipping on mobile/tablet viewports */
+    padding: 4rem 20px;
+    /* Added 20px horizontal padding to prevent edge clipping on mobile/tablet viewports */
   }
 
   .zigzag-img-frame {
@@ -850,6 +969,7 @@ footer {
 }
 
 @keyframes pulsate {
+
   0%,
   100% {
     transform: scale(1);
@@ -943,7 +1063,8 @@ footer {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 1000; /* Floating above all content */
+  z-index: 1000;
+  /* Floating above all content */
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -951,11 +1072,13 @@ footer {
 }
 
 .prev-arrow {
-  left: 40px; /* Aligned to fixed viewport edge */
+  left: 40px;
+  /* Aligned to fixed viewport edge */
 }
 
 .next-arrow {
-  right: 40px; /* Aligned to fixed viewport edge */
+  right: 40px;
+  /* Aligned to fixed viewport edge */
 }
 
 /* Hover & Active States with dynamic shifting micro-interactions */
@@ -990,6 +1113,7 @@ footer {
     left: 20px;
     background: rgba(10, 11, 16, 0.7);
   }
+
   .next-arrow {
     right: 20px;
     background: rgba(10, 11, 16, 0.7);
@@ -1001,9 +1125,11 @@ footer {
     width: 48px;
     height: 48px;
   }
+
   .prev-arrow {
     left: 10px;
   }
+
   .next-arrow {
     right: 10px;
   }
@@ -1033,7 +1159,8 @@ footer {
   left: 0;
   width: 3px;
   height: 100%;
-  background: #ef4444; /* China division signature red indicator */
+  background: #ef4444;
+  /* China division signature red indicator */
 }
 
 .chinese-team-panel:hover {
@@ -1115,7 +1242,8 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%; /* Ensures Chinese team heads/hair are fully visible */
+  object-position: center 15%;
+  /* Ensures Chinese team heads/hair are fully visible */
   position: absolute;
   top: 0;
   left: 0;
@@ -1170,24 +1298,30 @@ footer {
 
   .serpentine-path {
     fill: none;
-    stroke: #00e5ff; /* Vibrant Electric Cyan exactly like your screenshot! */
-    stroke-width: 12px; /* Extra thick and premium wave! */
+    stroke: #00e5ff;
+    /* Vibrant Electric Cyan exactly like your screenshot! */
+    stroke-width: 12px;
+    /* Extra thick and premium wave! */
     stroke-linecap: round;
     stroke-linejoin: round;
-    filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.85)); /* Sleek glowing neon wave */
+    filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.85));
+    /* Sleek glowing neon wave */
     opacity: 0.9;
-    transition: stroke-dashoffset 0.08s ease-out; /* Premium fluid momentum drawing! */
+    transition: stroke-dashoffset 0.08s ease-out;
+    /* Premium fluid momentum drawing! */
   }
 
   .serpentine-glow-path {
     fill: none;
-    stroke: #00e5ff; /* Ambient Cyan backdrop glow */
+    stroke: #00e5ff;
+    /* Ambient Cyan backdrop glow */
     stroke-width: 20px;
     stroke-linecap: round;
     stroke-linejoin: round;
     opacity: 0.4;
     filter: blur(10px);
-    transition: stroke-dashoffset 0.08s ease-out; /* Premium fluid momentum drawing! */
+    transition: stroke-dashoffset 0.08s ease-out;
+    /* Premium fluid momentum drawing! */
   }
 }
 
@@ -1198,9 +1332,21 @@ footer {
   }
 }
 
-#chinaMember2 .zigzag-img { object-position: center 14%; } /* Niraj Vagahasiya */
-#chinaMember3 .zigzag-img { object-position: center 15%; } /* Shivansh Bhai */
-#chinaMember4 .zigzag-img { object-position: center 15%; } /* Tom Bhai */
+#chinaMember2 .zigzag-img {
+  object-position: center 14%;
+}
+
+/* Niraj Vagahasiya */
+#chinaMember3 .zigzag-img {
+  object-position: center 15%;
+}
+
+/* Shivansh Bhai */
+#chinaMember4 .zigzag-img {
+  object-position: center 15%;
+}
+
+/* Tom Bhai */
 
 /* Premium Signature CEO Quote Style */
 .ceo-quote-container {
@@ -1214,8 +1360,10 @@ footer {
   box-shadow: inset 0 0 20px rgba(0, 242, 254, 0.02);
   transition: all 0.4s ease;
   animation: quotePulse 4s infinite alternate ease-in-out;
-  width: fit-content; /* Shrinks container perfectly around the quote length */
-  max-width: none;    /* Allow quote to span full single line on desktop */
+  width: fit-content;
+  /* Shrinks container perfectly around the quote length */
+  max-width: none;
+  /* Allow quote to span full single line on desktop */
   box-sizing: border-box;
 }
 
@@ -1236,34 +1384,50 @@ footer {
   font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.6;
-  color: #00f2fe; /* Glowing cyan color */
+  color: #00f2fe;
+  /* Glowing cyan color */
   text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
   margin: 0;
   letter-spacing: 0.5px;
   display: inline-block;
   padding-right: 4px;
-  min-height: 1.8rem; /* Prevent layout shift for single line */
-  white-space: nowrap; /* Keep quote in a single line on desktop */
-  opacity: 0; /* Hidden initially until typewriter script starts! */
+  min-height: 1.8rem;
+  /* Prevent layout shift for single line */
+  white-space: nowrap;
+  /* Keep quote in a single line on desktop */
+  opacity: 0;
+  /* Hidden initially until typewriter script starts! */
 }
 
 @media (max-width: 1024px) {
   .ceo-quote-container {
-    width: 100%; /* Ensure container takes full available width on mobile */
-    max-width: 100%; /* Bind container width on mobile to prevent horizontal overflow */
-    border-radius: 12px; /* Smooth rounded corners for mobile */
-    padding: 1.2rem 1.4rem; /* Slightly compact padding on smaller viewports */
+    width: 100%;
+    /* Ensure container takes full available width on mobile */
+    max-width: 100%;
+    /* Bind container width on mobile to prevent horizontal overflow */
+    border-radius: 12px;
+    /* Smooth rounded corners for mobile */
+    padding: 1.2rem 1.4rem;
+    /* Slightly compact padding on smaller viewports */
   }
+
   .ceo-quote-text {
-    white-space: normal; /* Allow text wrapping on mobile to prevent horizontal overflow */
-    font-size: 0.95rem; /* Slightly smaller, highly readable font size on mobile */
-    display: block; /* Ensure it wraps as a block element */
+    white-space: normal;
+    /* Allow text wrapping on mobile to prevent horizontal overflow */
+    font-size: 0.95rem;
+    /* Slightly smaller, highly readable font size on mobile */
+    display: block;
+    /* Ensure it wraps as a block element */
   }
+
   .partner-sub-nav {
-    justify-content: center; /* Center-align wrapped rows on small screens for balanced symmetry */
+    justify-content: center;
+    /* Center-align wrapped rows on small screens for balanced symmetry */
   }
+
   .sub-nav-item {
-    flex: 0 0 auto; /* Prevent avatar shrinking on tiny screens */
+    flex: 0 0 auto;
+    /* Prevent avatar shrinking on tiny screens */
   }
 }
 
@@ -1292,6 +1456,7 @@ footer {
     border-left-color: rgba(0, 242, 254, 0.5);
     box-shadow: inset 0 0 10px rgba(0, 242, 254, 0.02);
   }
+
   100% {
     border-left-color: rgba(0, 242, 254, 1);
     box-shadow: inset 0 0 25px rgba(0, 242, 254, 0.08), 0 0 15px rgba(0, 242, 254, 0.1);
@@ -1299,14 +1464,29 @@ footer {
 }
 
 @keyframes quoteShine {
-  0% { transform: translateX(-100%); }
-  50% { transform: translateX(100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #00f2fe; }
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: #00f2fe;
+  }
 }
 
 /* GLOBAL LOGISTICS WAREHOUSES SECTION */
@@ -1483,7 +1663,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  transform-origin: 46.5% 33%; /* Precision alignment on Mr. Prakash's left eye pupil */
+  transform-origin: 46.5% 33%;
+  /* Precision alignment on Mr. Prakash's left eye pupil */
   will-change: transform;
 }
 
@@ -1548,13 +1729,23 @@ footer {
 }
 
 @keyframes rotateCW {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes rotateCCW {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
 }
 
 /* Cinematic overlay text styling */
@@ -1625,10 +1816,12 @@ footer {
     box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.4);
     border-color: rgba(0, 229, 255, 0.2);
   }
+
   70% {
     box-shadow: 0 0 0 12px rgba(0, 229, 255, 0);
     border-color: rgba(0, 229, 255, 0.6);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
     border-color: rgba(0, 229, 255, 0.2);
@@ -1636,9 +1829,12 @@ footer {
 }
 
 @keyframes bounceArrow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(5px);
   }
@@ -1740,7 +1936,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,215,0,0.35) 60%, rgba(0,0,0,1) 100%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 215, 0, 0.35) 60%, rgba(0, 0, 0, 1) 100%);
   z-index: 20;
   opacity: 0;
   pointer-events: none;
@@ -1748,9 +1944,17 @@ footer {
 }
 
 @keyframes goldSilverSweep {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -1758,6 +1962,7 @@ footer {
     font-size: 1.8rem;
     letter-spacing: 4px;
   }
+
   .luxury-subtitle {
     font-size: 0.75rem;
     letter-spacing: 6px;
