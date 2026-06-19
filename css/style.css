@@ -378,9 +378,9 @@ body::before {
 
 /* LUXURY PREMIUM CIRCULAR PORTRAIT WINDOW */
 .zigzag-img-frame {
-  flex: 0 0 450px;
+  flex: 0 0 350px;
   width: 100%;
-  max-width: 450px;
+  max-width: 350px;
   aspect-ratio: 1 / 1;
   height: auto;
   border-radius: 50%;
@@ -430,8 +430,8 @@ body::before {
   position: relative;
   z-index: 2;
   opacity: 0;
-  /* Zoomed in to make the person's face/subject larger inside the circle frame */
-  transform: scale(1.35);
+  /* Initial state: No scale or shift, starts fully steady */
+  transform: none;
   will-change: transform, opacity;
   filter: grayscale(100%);
   /* Default luxury grayscale style */
@@ -442,7 +442,7 @@ body::before {
 /* When section is scrolled into view or switched, fade in smoothly without zoom-in stutter */
 .zigzag-row.visible .zigzag-img {
   opacity: 1;
-  transform: scale(1.35);
+  transform: none;
 }
 
 /* Premium board member portrait alignment to completely prevent head, hair, and suit cutoff */
@@ -519,7 +519,7 @@ body::before {
 .zigzag-row:hover .zigzag-img,
 .zigzag-row:active .zigzag-img,
 .zigzag-row.touch-hover .zigzag-img {
-  transform: scale(1.42);
+  transform: scale(1.05);
   filter: grayscale(0%) !important;
   /* Smoothly transitions back to full rich color on hover/active/touch! */
 }
