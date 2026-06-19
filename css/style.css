@@ -309,9 +309,9 @@ body::before {
 
 /* LUXURY PREMIUM CIRCULAR PORTRAIT WINDOW */
 .zigzag-img-frame {
-  flex: 0 0 420px;
+  flex: 0 0 480px;
   width: 100%;
-  max-width: 420px;
+  max-width: 480px;
   aspect-ratio: 1 / 1;
   height: auto;
   border-radius: 50%;
@@ -485,9 +485,11 @@ body::before {
   }
 
   .zigzag-img-frame {
-    width: 320px;
-    height: 320px;
-    flex: 0 0 320px;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 auto;
   }
 
   .zigzag-role {
